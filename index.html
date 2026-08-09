@@ -4,314 +4,236 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>XCurrent | The Burglars — Storyboard</title>
 <style>
-  :root{--bg:#0b1017;--card:#141c25;--edge:#1f2b37;--txt:#e8eef4;--dim:#8ea3b8;
-        --accent:#5fa8e8;--gold:#d8a657}
+  :root{--bg:#0b1017;--card:#141c25;--edge:#1f2b37;--txt:#e8eef4;--dim:#8ea3b8;--accent:#5fa8e8}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--txt);direction:rtl;text-align:right;
-       font-family:"Heebo","Assistant","Segoe UI",system-ui,sans-serif;line-height:1.65;font-size:16.5px}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 22px 90px}
+       font-family:"Heebo","Assistant","Segoe UI",system-ui,sans-serif;line-height:1.6;font-size:16px}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 22px 90px}
   header{background:linear-gradient(180deg,#070c12 0%,#0d141d 100%);
-         padding:54px 0 40px;border-bottom:1px solid var(--edge);margin-bottom:34px}
+         padding:56px 0 40px;border-bottom:1px solid var(--edge);margin-bottom:20px}
   header .wrap{padding-bottom:0}
-  .brand{font-size:12.5px;letter-spacing:.26em;color:var(--accent);margin:0 0 12px}
-  h1{margin:0 0 10px;font-size:38px;font-weight:800;letter-spacing:-.015em}
-  .sub{margin:0;color:var(--dim);font-size:15.5px}
-  .lede{background:var(--card);border:1px solid var(--edge);border-radius:14px;
-        padding:22px 26px;margin:0 0 30px}
-  .lede p{margin:9px 0}
-  .lede strong{color:#fff}
-  h2{font-size:22px;margin:52px 0 4px;font-weight:800}
-  h2 em{font-style:normal;color:var(--accent);margin-left:10px;font-size:15px;font-weight:600}
-  .seqline{color:var(--dim);font-size:14.5px;margin:0 0 18px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+  .brand{font-size:12px;letter-spacing:.28em;color:var(--accent);margin:0 0 14px}
+  h1{margin:0 0 10px;font-size:40px;font-weight:800;letter-spacing:-.015em}
+  .sub{margin:0;color:var(--dim);font-size:15px}
+  h2{font-size:22px;margin:54px 0 3px;font-weight:800}
+  h2 em{font-style:normal;color:var(--accent);margin-right:10px;font-size:15px;font-weight:600}
+  .seqline{color:var(--dim);font-size:14px;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
   .shot{background:var(--card);border:1px solid var(--edge);border-radius:13px;overflow:hidden;
         display:flex;flex-direction:column}
   .shot img{width:100%;display:block;background:#000}
   .pair{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--edge)}
-  .pair figure{margin:0;position:relative}
   .pair img{width:100%;display:block}
-  .pair figcaption{position:absolute;bottom:0;right:0;left:0;background:rgba(7,12,18,.82);
-                   font-size:11.5px;color:var(--dim);padding:4px 8px;text-align:center}
-  .cap{padding:14px 16px;flex:1}
+  .cap{padding:13px 16px 15px;flex:1}
   .num{display:inline-block;background:#1d2a37;color:var(--accent);font-weight:800;
-       font-size:12.5px;padding:2px 9px;border-radius:6px;margin-left:8px}
-  .dur{color:var(--dim);font-size:13px}
-  .ttl{font-weight:700;font-size:16px;margin:9px 0 5px}
-  .txt{margin:0;font-size:14px;color:#a9bccf}
-  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;
-         border-radius:99px;margin-top:9px;background:#1a2c3d;color:#79b6ea}
-  .badge.fin{background:#33291a;color:var(--gold)}
-  .gfx{display:flex;align-items:center;justify-content:center;min-height:186px;
+       font-size:12px;padding:2px 9px;border-radius:6px;margin-left:9px}
+  .dur{color:var(--dim);font-size:12.5px}
+  .ttl{font-weight:700;font-size:16px;margin:9px 0 4px}
+  .txt{margin:0;font-size:13.5px;color:#a9bccf}
+  .ost{display:block;margin-top:9px;font-size:12px;color:#7fb4e0;
+       background:#111c27;border-radius:6px;padding:5px 9px;direction:ltr;text-align:left}
+  .gfx{display:flex;align-items:center;justify-content:center;min-height:190px;
        background:repeating-linear-gradient(45deg,#101823,#101823 11px,#152030 11px,#152030 22px);
-       color:#6ba5db;font-size:14px;text-align:center;padding:18px;line-height:1.5}
-  .shot.hero{border-color:#3a4c5e;box-shadow:0 0 0 1px #2b3d4f inset}
-  .note{background:var(--card);border:1px solid var(--edge);border-right:4px solid var(--accent);
-        border-radius:12px;padding:18px 22px;margin:34px 0 0}
-  .note h3{margin:0 0 8px;font-size:17px}
-  ul{margin:9px 0;padding-right:20px} li{margin:6px 0;color:#b8cadb}
-  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--edge);
-         color:var(--dim);font-size:13.5px;text-align:center}
+       color:#6ba5db;font-size:14px;text-align:center;padding:20px;line-height:1.55}
+  .shot.hero{border-color:#3a4c5e}
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--edge);
+         color:var(--dim);font-size:13px;text-align:center}
   @media(max-width:640px){h1{font-size:28px}.grid{grid-template-columns:1fr}}
 </style>
 
 <header><div class="wrap">
   <p class="brand">NEW ANGLE</p>
   <h1>XCurrent · The Burglars</h1>
-  <p class="sub">סטורי בורד · 34 שוטים · 110 שניות · 16:9 · ויס אובר וכיתובים באנגלית · 9 באוגוסט 2026</p>
+  <p class="sub">Storyboard · 33 שוטים · 107 שניות · 16:9 · ויס אובר וכיתובים באנגלית</p>
 </div></header>
 
 <div class="wrap">
 
-<div class="lede">
-  <p><strong>מה זה המסמך.</strong> זה הסרט כולו, שוט אחר שוט, בסדר שבו הוא ייערך. כל תמונה כאן היא הפריים שממנו מיוצרת התנועה של אותו שוט, ולצידה מה קורה בו וכמה זמן הוא נמשך.</p>
-  <p><strong>איך לתת הערות.</strong> לכל שוט יש מספר. אפשר להעיר לפי מספר, וזה מה שנכנס לתיקון.</p>
-  <p><strong>המשטחים והרחפנים</strong> מיוצרים לפי הרפרנסים של XCurrent. המשטח הוא ה-XPAD Flex 100 בפרופורציה הנכונה מול הרחפן, מוצג בשתי תצורות: מערך של שישה משטחים מחוברים על גגות, ומשטח נייד על גב הכלב. כל המשטחים הקבועים מותקנים על גגות בלבד.</p>
-  <p><strong>הריבועים המקווקווים</strong> הם שוטים של מסכים וממשק, שנבנים בנפרד בעיצוב אחד ובגודל שנקרא גם בטלפון. הכתוב בהם הוא התוכן שייכנס.</p>
-</div>
-
 <h2>רצף 1 <em>הקריאה</em></h2>
-<p class="seqline">0:00 – 0:11.5 · ארבעה שוטים</p>
+<p class="seqline">0:00 – 0:11.5</p>
 <div class="grid">
-
   <div class="shot hero">
-    <div class="pair">
-      <figure><img src="W1/S1-A-start.jpg"><figcaption>פריים פותח</figcaption></figure>
-      <figure><img src="W1/S1-A-end.jpg"><figcaption>פריים סוגר</figcaption></figure>
-    </div>
-    <div class="cap">
-      <span class="num">01</span><span class="dur">4.0 שנ'</span>
+    <div class="pair"><img src="W1/S1-A-start.jpg"><img src="W1/S1-A-end.jpg"></div>
+    <div class="cap"><span class="num">01</span><span class="dur">4.0 שנ'</span>
       <p class="ttl">העין</p>
-      <p class="txt">שוט אחד רצוף. העין עצומה, נפקחת בבת אחת, ובאישון משתקף הלוגו של XCurrent. מיד אחר כך המבט נע הצידה, אל הרעש שמלמטה.</p>
-    </div>
+      <p class="txt">העין עצומה, נפקחת בבת אחת, הלוגו נפרש על העין, והמבט נע הצידה אל הרעש שמלמטה.</p></div>
   </div>
-
   <div class="shot"><img src="W1/S1-C.jpg"><div class="cap">
     <span class="num">02</span><span class="dur">2.0 שנ'</span>
     <p class="ttl">המסדרון</p>
-    <p class="txt">מסדרון קומה שנייה בבית פרטי. מדרגות יורדות לחושך, אור חמים עולה מלמטה. פוש אין איטי.</p></div></div>
-
+    <p class="txt">מדרגות יורדות לחושך, אור חמים עולה מלמטה. פוש אין איטי.</p></div></div>
   <div class="shot"><img src="W1/S1-D.jpg"><div class="cap">
     <span class="num">03</span><span class="dur">1.5 שנ'</span>
     <p class="ttl">הקריאה</p>
-    <p class="txt">יד נשלחת אל הטלפון שעל השידה. חיתוך חד.</p></div></div>
-
+    <p class="txt">יד נשלחת אל הטלפון. חיוג. חיתוך חד.</p></div></div>
   <div class="shot"><img src="W1/S1-E.jpg"><div class="cap">
     <span class="num">04</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">מוקד החירום</p>
-    <p class="txt">מוקדנית מאחור, המסכים כהים. הקריאה מתקבלת.</p>
-    <span class="badge">כיתוב: 02:47 AM · Emergency call received</span></div></div>
-
+    <p class="txt">הקריאה מתקבלת.</p>
+    <span class="ost">02:47 AM · Emergency call received</span></div></div>
 </div>
 
 <h2>רצף 2 <em>החמ"ל בוחר, מאשר, משגר</em></h2>
-<p class="seqline">0:11.5 – 0:31.5 · שישה שוטים</p>
+<p class="seqline">0:11.5 – 0:27.5</p>
 <div class="grid">
-
-  <div class="shot"><img src="W1/S2-A.jpg"><div class="cap">
-    <span class="num">05</span><span class="dur">4.0 שנ'</span>
-    <p class="ttl">החמ"ל</p>
-    <p class="txt">חדר השליטה בלילה. המצלמה נעה קדימה אל המסך הגדול.</p></div></div>
-
   <div class="shot"><div class="gfx">מפת העיירה<br>ארבע תחנות XPAD<br>נקודה אדומה פועמת על הבית</div><div class="cap">
-    <span class="num">06</span><span class="dur">3.0 שנ'</span>
+    <span class="num">05</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">הרשת על המסך</p>
-    <p class="txt">החמ"ל רואה את כל הרשת. ליד כל תחנה מופיע מה עומד עליה, סוג הרחפן, ומצב המוכנות.</p>
-    <span class="badge">כיתוב: Network status · 4 stations, 22 pads ready · Intrusion detected</span></div></div>
-
+    <p class="txt">ליד כל תחנה: מה עומד עליה, סוג הרחפן, ומצב המוכנות.</p>
+    <span class="ost">Network status: 4 stations, 22 pads ready · Intrusion detected</span></div></div>
   <div class="shot"><div class="gfx">זום אל התחנה שנבחרה<br>כרטיס המשטח נפתח</div><div class="cap">
-    <span class="num">07</span><span class="dur">2.5 שנ'</span>
-    <p class="ttl">הבחירה והאישור</p>
+    <span class="num">06</span><span class="dur">2.5 שנ'</span>
+    <p class="ttl">בחירה ואישור</p>
     <p class="txt">המוקדן בוחר את הרחפן שמתאים למשימה ומאשר שיגור.</p>
-    <span class="badge">כיתוב: Pad 07 selected · Charge 100% · Launch authorized by command</span></div></div>
-
+    <span class="ost">Pad 07 selected · Charge 100% · Launch authorized by command</span></div></div>
   <div class="shot"><img src="W1/S2-D.jpg"><div class="cap">
-    <span class="num">08</span><span class="dur">4.0 שנ'</span>
-    <p class="ttl">השיגור מהגג</p>
-    <p class="txt">מערך המשטחים על גג מבנה בעיירה. הרחפן שנבחר מתרומם ויוצא לדרך. שאר הרחפנים נשארים על המשטחים שלהם.</p>
-    <span class="badge">כיתוב: Unit dispatched, en route</span></div></div>
-
+    <span class="num">07</span><span class="dur">4.0 שנ'</span>
+    <p class="ttl">השיגור מגג תחנת הכיבוי</p>
+    <p class="txt">הרחפן שנבחר מתרומם. השאר נשארים על המשטחים שלהם, מוכנים.</p>
+    <span class="ost">Unit dispatched, en route</span></div></div>
   <div class="shot"><img src="W1/S2-F.jpg"><div class="cap">
-    <span class="num">09</span><span class="dur">4.0 שנ'</span>
+    <span class="num">08</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">בדרך לזירה</p>
-    <p class="txt">טופ שוט מלמעלה. הרחפן חוצה את הפריים במהירות מעל השכונה, והניידת נראית מתחתיו, מאחור. רואים גם את הלוקיישן וגם את פער המהירות.</p></div></div>
-
+    <p class="txt">טופ שוט. הרחפן חוצה את הפריים מעל השכונה ועוקף את הניידת שמתחתיו.</p></div></div>
   <div class="shot"><div class="gfx">שעון זמן השהייה<br>מתחיל לרוץ</div><div class="cap">
-    <span class="num">10</span><span class="dur">2.5 שנ'</span>
+    <span class="num">09</span><span class="dur">2.5 שנ'</span>
     <p class="ttl">זמן השהייה</p>
-    <p class="txt">במקום אחוזי סוללה, החמ"ל עוקב אחרי זמן השהייה שנותר. זה המנגנון שיחזור לאורך כל הסרט.</p>
-    <span class="badge">כיתוב: Endurance remaining 00:42</span></div></div>
-
+    <p class="txt">המנגנון שיחזור לאורך כל הסרט.</p>
+    <span class="ost">Endurance remaining 00:42</span></div></div>
 </div>
 
 <h2>רצף 3 <em>הרחפן בזירה</em></h2>
-<p class="seqline">0:31.5 – 0:45.5 · ארבעה שוטים</p>
+<p class="seqline">0:27.5 – 0:41.5</p>
 <div class="grid">
-
   <div class="shot"><img src="W1/S3-A.jpg"><div class="cap">
-    <span class="num">11</span><span class="dur">4.0 שנ'</span>
+    <span class="num">10</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">הגעה לבית</p>
-    <p class="txt">הרחפן מגיע ומתחיל להקיף את הבית מבחוץ. הדלת הקדמית פתוחה למחצה.</p></div></div>
-
+    <p class="txt">הרחפן מגיע ומקיף את הבית מבחוץ. הדלת הקדמית פתוחה למחצה.</p></div></div>
   <div class="shot"><img src="W1/S3-B.jpg"><div class="cap">
-    <span class="num">12</span><span class="dur">3.0 שנ'</span>
+    <span class="num">11</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">תמונת מצב חיצונית</p>
-    <p class="txt">מצלמת הרחפן על היקף הבית: החצר, הכניסות, רכב חונה. הפיד מגיע בו זמנית לחמ"ל ולניידת.</p>
-    <span class="badge">כיתוב: Live feed · Perimeter observed · Front entry, open</span></div></div>
-
+    <p class="txt">החצר, הכניסות, רכב חונה. הפיד מגיע לחמ"ל ולניידת בו זמנית.</p>
+    <span class="ost">Live feed · Perimeter observed · Front entry, open</span></div></div>
   <div class="shot"><img src="W1/S3-C.jpg"><div class="cap">
-    <span class="num">13</span><span class="dur">4.0 שנ'</span>
+    <span class="num">12</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">בתוך הניידת</p>
-    <p class="txt">השוטרים בדרך. המסך תופס חצי פריים, כדי שאפשר יהיה לקרוא אותו גם בטלפון.</p></div></div>
-
+    <p class="txt">המסך תופס חצי פריים, כדי שאפשר יהיה לקרוא אותו גם בטלפון.</p></div></div>
   <div class="shot"><div class="gfx">קלוזאפ על המסך<br>שכבות הניתוח נפתחות<br>זום אין רך</div><div class="cap">
-    <span class="num">14</span><span class="dur">3.0 שנ'</span>
+    <span class="num">13</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">הניתוח</p>
-    <p class="txt">הסימון והניתוח נעשים במערכת השליטה של המשטרה, ורואים את זה על המסך שלהם.</p></div></div>
-
+    <p class="txt">הסימון והניתוח נעשים במערכת השליטה של המשטרה.</p></div></div>
 </div>
 
 <h2>רצף 4 <em>חילוף מתוכנן מראש, בלי רגע אחד בלי כיסוי</em></h2>
-<p class="seqline">0:45.5 – 1:07.5 · שבעה שוטים</p>
+<p class="seqline">0:41.5 – 1:03.5</p>
 <div class="grid">
-
   <div class="shot"><div class="gfx">שעון זמן השהייה<br>מתקרב לסף<br>המערכת מזמינה מחליף</div><div class="cap">
-    <span class="num">15</span><span class="dur">3.0 שנ'</span>
+    <span class="num">14</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">החילוף מוזמן מראש</p>
-    <p class="txt">המערכת מחשבת מתי הרחפן יצטרך לעזוב, והחמ"ל מזמין מחליף בעוד יש מרווח.</p>
-    <span class="badge">כיתוב: Endurance remaining 04:10 · Relief scheduled</span></div></div>
-
+    <p class="txt">בזמן שעוד יש מרווח.</p>
+    <span class="ost">Endurance remaining 04:10 · Relief scheduled</span></div></div>
   <div class="shot"><img src="W1/S4-B.jpg"><div class="cap">
-    <span class="num">16</span><span class="dur">4.0 שנ'</span>
-    <p class="ttl">מערך שישה משטחים</p>
-    <p class="txt">גג של מבנה ציבורי בעיירה. שישה משטחים מחוברים למשטח נחיתה אחד, ועליהם רחפנים מדגמים שונים, כל אחד עם נתוני הסטטוס שלו.</p>
-    <span class="badge">כיתוב: Platform agnostic, any drone</span></div></div>
-
+    <span class="num">15</span><span class="dur">4.0 שנ'</span>
+    <p class="ttl">מערך שישה משטחים על גג המרפאה</p>
+    <p class="txt">חמישה רחפנים מדגמים שונים, כל אחד על המשטח שלו, כל אחד עם נתוני הסטטוס שלו.</p>
+    <span class="ost">Platform agnostic, any drone</span></div></div>
   <div class="shot"><img src="W1/S4-C.jpg"><div class="cap">
-    <span class="num">17</span><span class="dur">3.0 שנ'</span>
+    <span class="num">16</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">המחליף מתעורר</p>
     <p class="txt">נורות הסטטוס נדלקות אחת אחרי השנייה, המדחפים מתחילים להסתובב.</p>
-    <span class="badge">כיתוב: Relief airborne</span></div></div>
-
+    <span class="ost">Relief airborne</span></div></div>
   <div class="shot"><img src="W1/S4-D.jpg"><div class="cap">
-    <span class="num">18</span><span class="dur">3.0 שנ'</span>
+    <span class="num">17</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">המראה מהמערך</p>
-    <p class="txt">רחפן אחד יוצא, השניים האחרים נשארים על המשטחים שלהם ומוכנים.</p></div></div>
-
+    <p class="txt">אחד יוצא, השאר נשארים על המשטחים שלהם.</p></div></div>
   <div class="shot hero"><img src="W1/S4-E.jpg"><div class="cap">
-    <span class="num">19</span><span class="dur">4.0 שנ'</span>
+    <span class="num">18</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">החפיפה</p>
-    <p class="txt">שני הרחפנים באוויר יחד באותו פריים. הראשון עוזב רק אחרי שהשני כבר מיוצב. אין אפילו שנייה אחת בלי כיסוי, ורואים את זה בעין.</p>
-    <span class="badge">כיתוב: Overlap confirmed, coverage continuous</span></div></div>
-
+    <p class="txt">שני רחפנים באוויר יחד באותו פריים. הראשון עוזב רק אחרי שהשני מיוצב.</p>
+    <span class="ost">Overlap confirmed, coverage continuous</span></div></div>
   <div class="shot"><img src="W1/S4-F.jpg"><div class="cap">
-    <span class="num">20</span><span class="dur">3.0 שנ'</span>
+    <span class="num">19</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">חזרה למשטח</p>
     <p class="txt">הרחפן הראשון נוחת על המערך, לצד הרחפנים שכבר עומדים שם.</p>
-    <span class="badge">כיתוב: Return to selected pad · Landed</span></div></div>
-
+    <span class="ost">Return to selected pad · Landed</span></div></div>
   <div class="shot"><img src="W1/S4-G.jpg"><div class="cap">
-    <span class="num">21</span><span class="dur">2.0 שנ'</span>
+    <span class="num">20</span><span class="dur">2.0 שנ'</span>
     <p class="ttl">מגע והעברת מידע</p>
-    <p class="txt">קלוז על נקודת המגע. המידע עובר בשני הכיוונים ברגע שהרחפן יושב.</p>
-    <span class="badge">כיתוב: Data downlink · New tasking uploaded · Ready</span></div></div>
-
+    <p class="txt">המידע עובר בשני הכיוונים ברגע שהרחפן יושב.</p>
+    <span class="ost">Data downlink · New tasking uploaded · Ready</span></div></div>
 </div>
 
 <h2>רצף 5 <em>אותה תשתית, על פלטפורמה ניידת</em></h2>
-<p class="seqline">1:07.5 – 1:20.5 · ארבעה שוטים</p>
+<p class="seqline">1:03.5 – 1:16.5</p>
 <div class="grid">
-
   <div class="shot"><img src="W1/S5-A.jpg"><div class="cap">
-    <span class="num">22</span><span class="dur">3.0 שנ'</span>
+    <span class="num">21</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">הכוח מגיע</p>
-    <p class="txt">הרכב עוצר ברחוב, הדלת האחורית נפתחת.</p></div></div>
-
+    <p class="txt">הרכב עוצר, הדלת האחורית נפתחת.</p></div></div>
   <div class="shot"><img src="W1/S5-B.jpg"><div class="cap">
-    <span class="num">23</span><span class="dur">3.0 שנ'</span>
+    <span class="num">22</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">XPAD Mobile</p>
-    <p class="txt">הכלב הרובוטי יורד, ועל גבו משטח נייד עם רחפן קטן טעון. המצלמה על המשטח.</p>
-    <span class="badge">כיתוב: XPAD Mobile</span></div></div>
-
+    <p class="txt">הכלב יורד, ועל גבו עריסה עם רחפן קטן טעון. המצלמה על העריסה.</p>
+    <span class="ost">XPAD Mobile</span></div></div>
   <div class="shot"><img src="W1/S5-C.jpg"><div class="cap">
-    <span class="num">24</span><span class="dur">3.0 שנ'</span>
-    <p class="ttl">חצי חוג סביב המשטח</p>
-    <p class="txt">סיבוב 180 סביב המשטח תוך כדי תנועה, עם הסבר קצר על מה שרואים.</p>
-    <span class="badge">כיתוב: Drone ready, 100%</span></div></div>
-
+    <span class="num">23</span><span class="dur">3.0 שנ'</span>
+    <p class="ttl">חצי חוג סביב העריסה</p>
+    <p class="txt">סיבוב 180 תוך כדי תנועה.</p>
+    <span class="ost">Drone ready, 100%</span></div></div>
   <div class="shot"><img src="W1/S5-D.jpg"><div class="cap">
-    <span class="num">25</span><span class="dur">4.0 שנ'</span>
+    <span class="num">24</span><span class="dur">4.0 שנ'</span>
     <p class="ttl">הרחפן הקטן נכנס</p>
-    <p class="txt">רחפן קטן, מדחפים בתוך טבעות מגן, ממריא ישירות מגב הכלב ונכנס אל הבית דרך הדלת הפתוחה.</p>
-    <span class="badge">כיתוב: Aerial asset deployed · Entering structure</span></div></div>
-
+    <p class="txt">ממריא ישירות מגב הכלב ונכנס אל הבית דרך הדלת הפתוחה.</p>
+    <span class="ost">Aerial asset deployed · Entering structure</span></div></div>
 </div>
 
-<h2>רצף 6 <em>זיהוי, מעצר, חזרה למוכנות, וסגירה</em></h2>
-<p class="seqline">1:20.5 – 1:50.5 · תשעה שוטים</p>
+<h2>רצף 6 <em>זיהוי, מעצר, חזרה למוכנות, סגירה</em></h2>
+<p class="seqline">1:16.5 – 1:46.5</p>
 <div class="grid">
-
   <div class="shot"><img src="W1/S6-A.jpg"><div class="cap">
-    <span class="num">26</span><span class="dur">3.0 שנ'</span>
+    <span class="num">25</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">הזיהוי מבפנים</p>
-    <p class="txt">הפעם הראשונה שרואים אותם מקרוב היא דרך מצלמת הרחפן הקטן, מתוך הבית.</p>
-    <span class="badge">כיתוב: Suspects identified: 2 · Resident: 1</span></div></div>
-
+    <p class="txt">הפעם הראשונה שרואים אותם מקרוב, דרך מצלמת הרחפן הקטן.</p>
+    <span class="ost">Suspects identified: 2 · Resident: 1</span></div></div>
   <div class="shot"><img src="W1/S6-B.jpg"><div class="cap">
-    <span class="num">27</span><span class="dur">2.0 שנ'</span>
+    <span class="num">26</span><span class="dur">2.0 שנ'</span>
     <p class="ttl">הם מבחינים</p>
     <p class="txt">רגע ההפתעה. הם פונים לברוח.</p></div></div>
-
   <div class="shot"><img src="W1/S6-C.jpg"><div class="cap">
-    <span class="num">28</span><span class="dur">3.0 שנ'</span>
+    <span class="num">27</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">המעצר</p>
-    <p class="txt">מידיום שוט מהגב, ידיים מורמות, והמולת הכוחות סביבם. האירוע נסגר ברקע, לא בשיא.</p>
-    <span class="badge">כיתוב: Suspects in custody</span></div></div>
-
+    <p class="txt">מהגב, ידיים מורמות, המולת הכוחות סביבם.</p>
+    <span class="ost">Suspects in custody</span></div></div>
   <div class="shot"><img src="W1/S6-D.jpg"><div class="cap">
-    <span class="num">29</span><span class="dur">3.0 שנ'</span>
+    <span class="num">28</span><span class="dur">3.0 שנ'</span>
     <p class="ttl">טעינה</p>
-    <p class="txt">רחפן התצפית יושב על המערך ומתחיל להיטען, לצד הרחפנים האחרים.</p>
-    <span class="badge">כיתוב: Charging</span></div></div>
-
+    <p class="txt">רחפן התצפית יושב על המערך ומתחיל להיטען.</p>
+    <span class="ost">Charging</span></div></div>
   <div class="shot"><img src="W1/S6-E.jpg"><div class="cap">
-    <span class="num">30</span><span class="dur">2.5 שנ'</span>
+    <span class="num">29</span><span class="dur">2.5 שנ'</span>
     <p class="ttl">הרחפן הקטן חוזר</p>
-    <p class="txt">חוזר מהבית אל המשטח שעל גב הכלב, נעילה נסגרת, מתחיל להיטען.</p></div></div>
-
+    <p class="txt">חוזר אל העריסה שעל גב הכלב, נעילה נסגרת, מתחיל להיטען.</p></div></div>
   <div class="shot"><img src="W1/S6-F.jpg"><div class="cap">
-    <span class="num">31</span><span class="dur">2.5 שנ'</span>
+    <span class="num">30</span><span class="dur">2.5 שנ'</span>
     <p class="ttl">Sleep mode</p>
-    <p class="txt">הטעינה הושלמה. הנורות נכבות אחת אחרי השנייה. הרחפן נשאר עומד, רדום ומוכן למשימה הבאה.</p>
-    <span class="badge">כיתוב: Charging complete · Sleep mode · Ready for next mission</span></div></div>
-
+    <p class="txt">הנורות נכבות אחת אחרי השנייה. רדום ומוכן למשימה הבאה.</p>
+    <span class="ost">Charging complete · Sleep mode · Ready for next mission</span></div></div>
   <div class="shot hero"><img src="W1/S6-G.jpg"><div class="cap">
-    <span class="num">32</span><span class="dur">6.0 שנ'</span>
+    <span class="num">31</span><span class="dur">6.0 שנ'</span>
     <p class="ttl">העיירה</p>
-    <p class="txt">דולי אאוט מתמשך שנפתח מהבית אל העיירה כולה. משטחים פרוסים על גגות לאורכה, וקווים נמתחים ביניהם לרשת אחת. המרחקים הם מה שהופך רשת אנרגיה מבוזרת ליתרון.</p>
-    <span class="badge">כיתוב: Persistent air coverage · Autonomous energy network</span></div></div>
-
+    <p class="txt">דולי אאוט שנפתח מהבית אל העיירה כולה. משטחים על גגות לאורכה, וקווים נמתחים ביניהם לרשת אחת.</p>
+    <span class="ost">Persistent air coverage · Autonomous energy network</span></div></div>
   <div class="shot hero"><img src="W1/S6-H.jpg"><div class="cap">
-    <span class="num">33</span><span class="dur">6.0 שנ'</span>
+    <span class="num">32</span><span class="dur">6.0 שנ'</span>
     <p class="ttl">המוצר · סיבוב 360</p>
-    <p class="txt">שוט הסיום. המצלמה מקיפה את ה-XPAD Flex 100 סיבוב מלא על רקע שחור נקי, ותוך כדי הסיבוב נפתחות סביבו שכבות מידע על היכולות שלו. זה הרגע היחיד בסרט שבו הסרט עוצר ומסתכל על המוצר עצמו.</p>
-    <span class="badge fin">שכבות המידע יוגדרו יחד. חמישה נתונים.</span></div></div>
-
+    <p class="txt">שוט הסיום. סיבוב מלא סביב ה-XPAD Flex 100, ותוך כדי הסיבוב נפתחות סביבו שכבות מידע.</p></div></div>
   <div class="shot"><div class="gfx">לוגו XCurrent<br>+ טאגליין</div><div class="cap">
-    <span class="num">34</span><span class="dur">2.0 שנ'</span>
+    <span class="num">33</span><span class="dur">2.0 שנ'</span>
     <p class="ttl">סגירה</p>
     <p class="txt">One Infrastructure. Every Mission. Always Ready.</p></div></div>
-
 </div>
 
-<div class="note">
-  <h3>שתי נקודות פתוחות</h3>
-  <ul>
-    <li><strong>שכבות המידע בשוט 33.</strong> חמישה נתונים על המוצר שיעלו סביבו תוך כדי הסיבוב. נשמח שתכתיבו אותם, כי זה הרגע שמדבר על המוצר ישירות.</li>
-    <li><strong>הרחפן שיושב על הכלב.</strong> בשוטים 23 עד 25 ו-30 הוא מוצג כרחפן קטן עם מדחפים בתוך טבעות מגן. נשמח לרפרנס כדי לדייק אותו.</li>
-  </ul>
-</div>
-
-<footer>New Angle · סטורי בורד לאישור · 9.8.2026</footer>
+<footer>New Angle · 9.8.2026</footer>
 
 </div>
 
