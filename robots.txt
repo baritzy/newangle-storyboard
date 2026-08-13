@@ -1,0 +1,4 @@
+# New Angle client storyboard. Not a public page.
+# Shared by direct link with the client only. Nothing here is meant to be indexed.
+User-agent: *
+Disallow: /
