@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b11">
+<title>XCurrent · The Burglars · מענה להערות · גרסה 8</title>
+<meta name="description" content="מענה נקודתי ל-25 ההערות, רצף 11 השלבים, ומה שנשאר פתוח.">
+<style>
+:root{
+  --bg:#070b11; --bg-2:#0b1119; --surface:#0d141d; --surface-2:#121b26;
+  --fg:#e9eef4; --fg-2:rgba(233,238,244,.62); --fg-3:rgba(233,238,244,.38);
+  --steel:#7d94ab; --amber:#e0932f; --amber-2:rgba(224,147,47,.55);
+  --red:#e0574f; --red-2:rgba(224,87,79,.55); --red-3:rgba(224,87,79,.10);
+  --green:#4fbf8b; --green-2:rgba(79,191,139,.55); --green-3:rgba(79,191,139,.09);
+  --line:rgba(199,216,235,.13); --line-2:rgba(199,216,235,.24);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:72px; --s9:112px;
+  --gutter:16px; --maxw:900px;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --font:system-ui,-apple-system,"SF Hebrew","Segoe UI","Noto Sans Hebrew","Arial Hebrew",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+     font-size:14px;line-height:1.55;overflow-x:hidden}
+a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--amber-2)}
+a:hover{border-bottom-color:var(--amber)}
+code{font-family:inherit;color:var(--steel);letter-spacing:.02em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+         color:var(--fg-3);font-variant-numeric:tabular-nums;line-height:1}
+
+header.masthead{padding-block:var(--s8) var(--s6)}
+header .eyebrow{display:block;color:var(--steel);margin-bottom:var(--s5)}
+h1{margin:0;font-size:clamp(30px,7vw,56px);font-weight:800;letter-spacing:-.03em;line-height:.94}
+.meta-row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin:var(--s5) 0 0;
+          font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+          color:var(--fg-3);font-variant-numeric:tabular-nums}
+.meta-row span:first-child{color:var(--fg-2)}
+.lede{margin:var(--s6) 0 0;max-width:64ch;color:var(--fg-2);font-size:14px}
+.lede b{color:var(--fg);font-weight:600}
+
+.key{margin:var(--s6) 0 0;padding:var(--s4) 0;border-top:1px solid var(--line-2);
+     border-bottom:1px solid var(--line-2);display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5)}
+.key div{display:flex;align-items:center;gap:var(--s2);font-size:12px;color:var(--fg-2)}
+.key i{width:10px;height:10px;flex:0 0 10px}
+.key .kr{background:var(--red)} .key .kg{background:var(--green)}
+
+section{padding-block:var(--s8)}
+section > .eyebrow{display:block;color:var(--steel)}
+h2{margin:var(--s3) 0 var(--s2);font-size:clamp(21px,3.6vw,32px);font-weight:700;
+   letter-spacing:-.02em;line-height:1.08}
+.sec-note{margin:0 0 var(--s6);color:var(--fg-3);font-size:13px;max-width:64ch}
+
+.item{padding-block:var(--s5);border-top:1px solid var(--line)}
+.item h3{margin:0 0 var(--s3);font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.item .body{margin:0;color:var(--fg-2);max-width:66ch}
+.shot-meta{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:baseline;margin:0 0 var(--s3);
+           font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+           color:var(--fg-3);font-variant-numeric:tabular-nums}
+.shot-meta .n{color:var(--fg-2)}
+.shot-meta .tc{color:var(--steel)}
+.st-ok{color:var(--green)} .st-edit{color:var(--amber)}
+.st-note{color:var(--steel)} .st-wait{color:var(--red)}
+
+blockquote.his{margin:0 0 var(--s4);padding-inline-start:var(--s4);
+               border-inline-start:1px solid var(--line-2);color:var(--fg);
+               font-size:15px;line-height:1.5;max-width:66ch}
+.red,.green{padding:var(--s3) var(--s4);margin-bottom:var(--s2);max-width:66ch}
+.red{border-inline-start:2px solid var(--red);background:var(--red-3)}
+.green{border-inline-start:2px solid var(--green);background:var(--green-3)}
+.red .eyebrow{color:var(--red-2)} .green .eyebrow{color:var(--green-2)}
+.red p,.green p{margin:var(--s2) 0 0;color:var(--fg-2)}
+.red p{color:rgba(233,238,244,.72)}
+
+.stage{display:grid;grid-template-columns:1fr;gap:var(--s3);
+       padding-block:var(--s5);border-top:1px solid var(--line)}
+.stage-k{display:flex;align-items:flex-start;gap:var(--s3)}
+.stage-k i{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;
+           width:24px;height:24px;border-radius:2px;background:var(--fg);color:#070b11;
+           font-style:normal;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.stage-k span{font-size:15px;font-weight:600;line-height:1.3;color:var(--fg)}
+.stage-v p:last-child{margin:0;color:var(--fg-2);max-width:64ch}
+
+footer{padding-block:var(--s7);border-top:1px solid var(--line);text-align:center;
+       color:var(--fg-3);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+
+@media (min-width:700px){ :root{--gutter:32px} }
+@media (min-width:1081px){
+  :root{--gutter:48px}
+  section{padding-block:var(--s9)}
+  .stage{grid-template-columns:1fr 1.4fr;gap:var(--s6);align-items:start}
+}
+@media print{
+  :root{--bg:#fff;--fg:#000;--fg-2:#333;--fg-3:#666;--line:#ccc;--line-2:#bbb;
+        --red-3:#fdeeee;--green-3:#eefaf3;--red-2:#9b2f28;--green-2:#1f6e4c;
+        --steel:#40556b;--amber:#8a5a10;--amber-2:#8a5a10}
+  body{background:#fff;color:#000}
+  .item,.stage{break-inside:avoid;page-break-inside:avoid}
+  section{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">NEW ANGLE</p>
+  <h1>מענה להערות שלך</h1>
+  <p class="meta-row">
+    <span>XCurrent · The Burglars</span><span>גרסה 8</span><span>19.8.26</span>
+    <span>25 הערות</span>
+  </p>
+  <p class="lede">כל הערה שכתבת מופיעה כאן, עם התגובה שלנו ועם מה שמשתנה בפועל בסרט.
+  <b>25 הערות, כולן נענו.</b> שתיים מהן הן הערות אורך ומבוצעות בשלב העריכה ולא במבנה, אחת הובהרה בלי לשנות שוט, ושלוש מיושמות אבל ממתינות למידע ממך. הסטורי בורד המלא נמצא <a href="storyboard-client-v8.html">בדף נפרד</a>.</p>
+  <p class="lede">ההערות המצוטטות למטה הן הרישום שלנו מהמייל שלך, מילה במילה כפי שנרשם אצלנו. במקומות שבהם הרישום מדבר עליך בגוף שלישי, השארנו אותו כמו שהוא ולא ניסחנו מחדש. אם משהו לא תואם למה שכתבת, תקן אותנו.</p>
+  <div class="key">
+    <div><i class="kr"></i>באדום: ההערה שלך והתגובה שלנו אליה</div>
+    <div><i class="kg"></i>בירוק: מה אנחנו משנים בפועל</div>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">חלק א</p>
+  <h2>25 ההערות, אחת אחת</h2>
+  <p class="sec-note">מספרי השוטים בעמודה הימנית הם המספרים שאתה מכיר מהגרסה הקודמת. בסטורי בורד החדש המספור רציף, ולכל שוט מוצג המספר הישן כהפניה.</p>
+  <article class="item">
+    <p class="shot-meta"><span class="n">01</span><span class="ref">שוט כללי</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">מפה עם כמה נקודות · נקודה נבחרת וגדלה לחלון · משטח על גג עם שלושה רחפנים · מעבר חלק אל הגג · חוג סביב המשטח, גרפיקה מעל כל רחפן · סימון המתאים למשימה · אישור המוקדן · זרימת מידע מהמשטח לרחפן · הרחפן נדלק וממריא · חזרה למסך המשטרה, תמונת מצב בדרך ליעד · עיקרון תשומת הלב.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים את כל 11 השלבים, בלי לוותר על אחד, וכל פריים שמממש שלב נושא את מספר השלב שלך עליו. הנוסח המלא של כל שלב, ואיפה הוא יושב, נמצא בחלק ב.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>הרצף גדל מ-13.5 שניות בארבעה שוטים ל-26.0 שניות בשבעה שוטים, מהמפה על המסך ועד החזרה למסך. שלב 10 קיבל שוט משלו, חזרה אמיתית למסך החמ״ל. הסרט גדל בשבע שניות, וכולן הלכו לרצף הזה.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">02</span><span class="ref">שוט 7</span><span class="st st-wait">מיושם, ממתין למידע ממך</span></p>
+    <blockquote class="his">להחליף את משאית הכיבוי למתקדמת חדשה, ולהשאיר שלושה רחפנים. ישלח צילומי מסך.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים במלואו.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>הכבאית עוברת לדגם עם תא נמוך וסולם מפרקי על הגג, ומופיעה בשוטים 06, 09 ו-32. על המערך שלושה רחפנים בלבד. עד שצילומי המסך יגיעו, דגם הכבאית הוא הצעה שלנו ומסומן ככזה.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">03</span><span class="ref">שוט 8</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">השוט טוב.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, והשוט נשמר כמו שהוא ולא כמצע לשלב 10. שלב 10 קיבל שוט משלו אחריו.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 10 החדש הוא אותו טופ שוט, אותו אורך, אותו פוטג׳. נוספה עליו רק שכבת הסוללה. תמונת המצב עברה לשוט הבא.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">04</span><span class="ref">שוט 9</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">במקום שעון עצר, גרפיקת אחוז סוללה. חוזרת לאורך הסרטון כדי לראות ירידה הדרגתית.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים במלואו, ומרחיבים: הסוללה לא צריכה כרטיס משלה, היא רוכבת על השוטים. לצידה שמרנו את חישוב זמן השהייה שביקשת מלכתחילה.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>כרטיס הגרפיקה העצמאי מתבטל ו-2.5 שניות מתפנות. הסוללה נכנסת כשכבה קבועה בפינה הימנית העליונה, 17 ערכים נעולים, כל אחד עם זמן שהייה תואם. הזמנת המחליף נגזרת מזמן השהייה מול זמן ההגעה של המחליף, ולא מאחוז קבוע.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">05</span><span class="ref">שוט 10-11</span><span class="st st-edit">נדחה לעריכה</span></p>
+    <blockquote class="his">קצרים ומהירים. לא להתעכב על הפורצים, שלא ימשכו תשומת לב מהמוצר.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים את הכוונה, ומבצעים בעריכה. הסטורי בורד הוא לא הכלי לקבוע פריימים.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 12 יורד מ-4.0 ל-2.5 שניות ושוט 13 מ-3.0 ל-2.0, בשלב העריכה. במבנה השוטים לא משתנה כלום.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">06</span><span class="ref">שוט 12</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">בחצי מסך: הרחפן הפעיל וגרפיקת סוללה יורדת. במסך המתחלף: משטח בתחנה אחרת עם רחפן נוסף זמין להחלפה.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים. הפיצול כבר קיים, הגרפיקה היא מה שהיה חסר.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 14: המסך בניידת תופס חצי פריים, ועליו הרחפן הפעיל ומודול הסוללה שלו ב-76 אחוז. שוט 15: המסך מתמלא ומתפצל, מצד אחד מה שהרחפן רואה בזירה, מצד שני כרטיס המשטח עם הרחפן המחליף ב-100 אחוז.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">07</span><span class="ref">שוט 13</span><span class="st st-note">הובהר, בלי שינוי מבני</span></p>
+    <blockquote class="his">לא ברור לו מה השוט מציג ואיזה מסר הוא מעביר. מבקש פישוט.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>זו שאלה ולא תיקון, ולכן התשובה היא בהירות ולא מחיקה. הכוונה הייתה זום אל תוך מסך השוטר משוט 12.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>אין יותר חיתוך אל גרפיקה מלאה, זו תנועת מצלמה רציפה אחת. מסגרת הטאבלט נשארת בפינות הפריים גם בקלוזאפ המקסימלי, כך שאי אפשר לאבד את המיקום. נוספה תווית <code dir="ltr">IN-VEHICLE TERMINAL</code>. והאמירה שהניתוח והסימון נעשים במערכת השליטה של המשטרה נשמרה, והיא מופיעה עכשיו בשני שוטים ולא באחד.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">08</span><span class="ref">שוט 14</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">במקום שעון, שוב גרפיקת סוללה.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, וההערה שלך על שוט 12 כבר עושה את זה טוב יותר.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>הכרטיס העצמאי מתבטל ו-3.0 שניות מתפנות. הפונקציה שלו, המערכת מזמינה מחליף, עוברת לשוט 15, בדיוק כפי שביקשת בהערה על שוט 12.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">09</span><span class="ref">שוט 15</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">על המשטח שלושה רחפנים בלבד, השאר בפעולה.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 16: על המערך שני רחפנים, והמשטח של השלישי ריק ומסומן <code dir="ltr">ON MISSION</code>. חמשת הרחפנים מהגרסה הקודמת ירדו.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">10</span><span class="ref">שוט 16</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">שוב פקודה או זרימת מידע מהמשטח לרחפן, עם זום ברור על המשטח, ואז הרחפן נדלק וממריא.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים במלואו, ונותנים לפקודה שוט משלה. בגרסה הקודמת שוט 16 היה 3.0 שניות והחזיק גם את ההתעוררות וגם את תחילת ההמראה, ושתיהן התחרו זו בזו. הפקודה היא הדבר שרצית שיודגש.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 17: קלוזאפ נמוך על המשטח, שלוש פעימות נעות מהמחבר שבמשטח אל רגלי הרחפן, והרחפן עדיין יושב. שוט 18: ההמראה. שוט 17 הוא 3.5 שניות ושוט 18 הוא 3.0, כלומר 6.5 ביחד, מול 6.0 שהיו לשוטים 16 ו-17 בגרסה הקודמת.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">11</span><span class="ref">שוט 17</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">גם כאן שלושה רחפנים בלבד.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 18: אחד ממריא, אחד נשאר, והמשטח שהתפנה ריק ומסומן.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">12</span><span class="ref">שוט 18</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">ליד המשטח נפתח חלון מפה ובחירת המשטח שאליו הרחפן מופנה. אחרי הבחירה רואים אותו טס לשם. אפשר קו אווירי גרפי.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, עם הערה אחת על מיקום כדי שלא תחפש את זה ולא תמצא: בשוט 18 אין בכלל משטח בפריים, זו החפיפה עם שני רחפנים באוויר. לכן חלון המפה עבר לשוט הקרוב ביותר שיש בו משטח.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 17: לצד המשטח נפתח חלון מפה, יעד נבחר, והרחפן עדיין על המשטח. שוט 19: הקו האווירי הלבן המקווקו נמתח מהמערך אל הזירה מעל שני הרחפנים, וזה נשאר בדיוק בשוט שדיברת עליו.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">13</span><span class="ref">שוט 19</span><span class="st st-wait">מיושם, ממתין למידע ממך</span></p>
+    <blockquote class="his">מצוין. חשוב שיופיעו אותם שלושה רחפנים לאורך כל הסרטון, <code dir="ltr">continuity</code>.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, וזו לא הערה נקודתית אלא כלל עבודה שחל על כל הסרט.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>הוקמה מערכת זהויות קבועה לארבעת הרחפנים. כל שוט מציין במפורש איזה רחפן בפריים, וכל אחד נעול לפריים אב אחד שמשמש רפרנס בכל שוט שהוא מופיע בו.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">14</span><span class="ref">שוט 20</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">אחרי נחיתה: ברור שהרחפן מתחיל להיטען, ובמקביל מוריד את המידע שנאסף אל המערכת.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים. סוכם קלוזאפ על הרגל עם ברק באמצע, כמו באייפון.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 21: מאקרו על התפר שבו רגל הרחפן פוגשת את המשטח. הברק נדלק בתוך מודול הסוללה, ובמקביל חצים לבנים דקים נעים מהרחפן אל המשטח, כלומר בכיוון ההפוך משוט 17. הצופה קורא העלאה שם והורדה כאן.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">15</span><span class="ref">שוט 21</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">בסדר.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, ויש כאן יוזמה אחת שלנו שאנחנו מצהירים עליה מראש ולא מבריחים. אמרת בסדר על השוט הזה, ואנחנו משנים בו משהו.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>הרכב בגרסה הקודמת נקרא כוואן אנונימי. הוא הופך לרכב יחידה מבצעית כהה עם בר אורות על הגג, בלי שום סימני רשות. הוא נשאר שכבת עלילה ולא מוצר, ולכן הוא לא מקבל את מרכז תשומת הלב.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">16</span><span class="ref">שוט 22-23</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">הסלסלה או המעטפת שמחזיקה את הרחפן צריכה להיות גבוהה יותר, שהרחפן יושב בתוכה ולא על משטח שטוח.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים. ההערה הזאת וההערה על שוט 24 הן למעשה הערה אחת, וטופלו יחד.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>העריסה הוגדרה מחדש: ארבע דפנות שעולות כלפי מעלה, שוות גובה, גבוהות עד גובה טבעות המגן של הרחפן, ושתי זרועות החזקה מעוקלות שנסגרות עליו. שוטים 23 ו-24 מיוצרים מחדש מהיסוד.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">17</span><span class="ref">שוט 24</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">מצוין. לוודא שלמשטח ארבע דפנות שעולות כלפי מעלה ולא שתיים.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים. אותן דפנות.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 24 בנוי כחצי חוג מצלמה שמביא כל אחת מארבע הדפנות לתוך הפריים בתורה, כדי להוכיח שכולן שם. בשוט 25 הרחפן עולה מתוך העריסה כלפי מעלה, ולא מחליק ממשטח.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">18</span><span class="ref">שוט 25-27</span><span class="st st-edit">נדחה לעריכה</span></p>
+    <blockquote class="his">לקצר משמעותית את זמן המסך שלהם.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים את הכוונה, ומבצעים בעריכה. קיצור, לא טשטוש.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 26 יורד ל-2.0, שוט 27 ל-1.5, שוט 28 ל-2.0, בשלב העריכה. במבנה לא משתנה כלום. שוט המעצר מוגדר מפורשות כמידיום שוט מהגב, ידיים מורמות, המולת כוחות סביב.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">19</span><span class="ref">שוט 28</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">בסדר. טעינה.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים. כנראה גם כאן שלושה רחפנים.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 29: על המערך שני רחפנים והמשטח השלישי ריק ומסומן. פעימת הטעינה היא גרפיקה מולבשת ולא נורה שנצרבת בפריים, כי למשטח האמיתי אין תאורה משלו.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">20</span><span class="ref">שוט 29</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">לתקן את מבנה הסלסלה ואת המיקום.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, שני החלקים.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 30: אותה עריסה מתוקנת, ובמיקום מתוקן. היא יושבת במרכז גב הרובוט ולא בקצה האחורי, והמצלמה נמוכה ומקבילה לרצפה כדי שהעומק שלה ייקרא.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">21</span><span class="ref">שוט 30</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">הרחפן אינו מתקפל. הזרועות נשארות פתוחות גם כשהוא כבוי.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, וזה הפך לכלל שחל על כל שוט בסרט ולא רק על השוט הזה.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>בכל 34 השוטים זרועות הרחפן פתוחות, גם במצב כבוי. הקיפול נוסף גם לרשימת השלילות, כך שאין דרך שהוא יחזור בטעות.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">22</span><span class="ref">שוט 31</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">הרעיון טוב: דולי-אאוט מהבית אל העיר כולה, משטחים על גגות, קווים נמתחים ביניהם לרשת אחת.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, השוט נשמר כמעט כמו שהוא.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 32: אותו דולי אאוט. הקווים הגרפיים בנויים כך שהם יוצאים מהמשטחים ולא מהבניינים, כדי שיהיה חד שהרשת היא רשת של XCurrent ולא רשת של העיירה.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">23</span><span class="ref">שוט 32</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">חשוב להציג את המוצר האמיתי של XCurrent, לא גרסה גנרית שאינה תואמת למבנה שלהם.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>מקבלים, וזו ההערה שהכי צריכה לכאוב לנו. לא הסתפקנו בתיקון: המפרט של המוצר נכתב מחדש מול הרנדרים שלכם, שורה מול שורה.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 33 מיוצר מחדש לגמרי: שולחן נמוך עם סינר שלדה כסוף עמוק וארבע רגליים, ולא לוחית דקה · רשת גסה בארבע על ארבע, כמו ברנדרים שלכם, ולא רשת עדינה · סימון מרכז של ארבעה קווים נפרדים עם רווח ריק ביניהם, ולא צלב רציף · שברוני פינה חיוורים בשני מקטעים, ולא סוגריים בזווית ישרה · לוחית הכיתוב משמאל, <code dir="ltr">Flex 100</code> מימין, מודול מחבר במרכז · שום אור על המשטח, כל סימון הוא צבע · בלי ספק כוח ובלי כבל, לפי בקשתך.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">24</span><span class="ref">שוט 33</span><span class="st st-ok">מיושם</span></p>
+    <blockquote class="his">מצוין, סגירה.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>אין הערה, השוט לא נגוע.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>שוט 34 זהה לגרסה הקודמת.</p></div>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="n">25</span><span class="ref">שוט חותם המייל</span><span class="st st-wait">מיושם, ממתין למידע ממך</span></p>
+    <blockquote class="his">ולגבי איזה רחפנים באיזו סצנה, אכתוב מייל נפרד עם תמונות.</blockquote>
+    <div class="red"><span class="eyebrow">התגובה שלנו</span><p>ממתינים למייל, ובינתיים לא עוצרים את העבודה.</p></div>
+    <div class="green"><span class="eyebrow">מה משתנה בפועל</span><p>14 שוטים נוגעים בזה. שלושת הרחפנים הנלווים רצים בינתיים על הצעה שלנו, מסומנת בבירור כהצעה בכל שוט שהיא מופיעה בו. אף שוט לא כתוב עם שם דגם, אלא עם זהות פנימית, כך שהחלפה כשהתמונות יגיעו היא שינוי של שורה אחת.</p></div>
+  </article>
+</section>
+
+<section>
+  <p class="eyebrow">חלק ב</p>
+  <h2>רצף 11 השלבים, ואיפה כל שלב יושב</h2>
+  <p class="sec-note">כתבת רשימה ממוספרת של 11 שלבים. כולם נכנסו. כל פריים שמממש שלב נושא את המספר שלך עליו בפינה, כדי שתוכל לסמן וי בעיניים. הרצף גדל מ-13.5 שניות ל-26.0 שניות.</p>
+  <article class="stage">
+    <div class="stage-k"><i>1</i><span>מפה עם כמה נקודות</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 05</span></p>
+      <p>מפת האזור נפרשת על מסך החמ״ל, ארבע תחנות ונקודה אדומה פועמת על הבית.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>2</i><span>נקודה נבחרת וגדלה לחלון</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 05</span></p>
+      <p>הנקודה מקבלת טבעת וגדלה עד שהיא תופסת את רוב הפריים. החיתוך לשלב הבא מתחבא בתוך הצמיחה.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>3</i><span>משטח על גג עם שלושה רחפנים</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 06</span></p>
+      <p>בתוך החלון: גג תחנת הכיבוי, מערך המשטחים, שלושה רחפנים שונים זה מזה.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>4</i><span>מעבר חלק אל הגג</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 06</span></p>
+      <p>מסגרת החלון נמוגה ואנחנו כבר על הגג עצמו. בלי חיתוך, כפי שביקשת.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>5</i><span>חוג סביב המשטח, גרפיקה מעל כל רחפן</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 07</span></p>
+      <p>חוג אחד רציף בגובה המשטח. מעל כל רחפן עולה בלוק נתונים: סוללה, זמן שהייה, מוכנות, קישוריות, סוג.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>6</i><span>סימון המתאים למשימה</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 07</span></p>
+      <p>סמן המוקדן נוחת על אחד הבלוקים, הוא מתעבה, והשאר מתעמעמים. התג נדלק בעקבות הסמן ולא מעצמו.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>7</i><span>אישור המוקדן</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 08</span></p>
+      <p>חזרה לחדר. יד לוחצת על מקש פיזי בקונסולה.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>8</i><span>זרימת מידע מהמשטח לרחפן</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 08</span></p>
+      <p>באותו פריים, בלי חיתוך: שלוש פעימות יוצאות מכרטיס המשטח אל אייקון הרחפן. כתבת מיד אחרי האישור, אז זה מיד.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>9</i><span>הרחפן נדלק וממריא</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 09</span></p>
+      <p>נורות הסטטוס נדלקות ברצף לאורך הזרועות, המדחפים מסתובבים, והוא עוזב את המשטח.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>10</i><span>חזרה למסך המשטרה, תמונת מצב בדרך ליעד</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט 11</span></p>
+      <p>שוט חדש לגמרי. אותו חדר, אותה מצלמה, אותו מוקדן. על הקיר כבר יושבת תמונת המצב: פיד חי, מרחק, זמן הגעה, גובה.</p>
+    </div>
+  </article>
+  <article class="stage">
+    <div class="stage-k"><i>11</i><span>עיקרון תשומת הלב</span></div>
+    <div class="stage-v">
+      <p class="shot-meta"><span class="ref">שוט כל הסרט</span></p>
+      <p>זה עיקרון קומפוזיציה ולא אירוע, ולכן אין לו שוט. הוא ממומש ככלל: בכל שוט שיש בו משטח, המשטח יושב במרכז השליש התחתון של הפריים והרחפן הוא זה שנכנס ויוצא. המשטח לא זז.</p>
+    </div>
+  </article>
+</section>
+
+<section>
+  <p class="eyebrow">חלק ג</p>
+  <h2>שלוש נקודות שמשכו לשני כיוונים</h2>
+  <p class="sec-note">בשלושה מקומות שתי הערות שלך מובילות לתוצאות שונות. הכרענו, וזה מה שהכרענו ולמה. אם פספסנו את הכוונה, תקן אותנו ונחזור אחורה.</p>
+  <article class="item">
+    <h3>המחליף: מאותה תחנה או מתחנה אחרת</h3>
+    <div class="red"><span class="eyebrow">שתי ההערות מושכות לכיוונים שונים</span><p>בהערה על שוט 12 ביקשת משטח בתחנה אחרת עם רחפן נוסף זמין להחלפה. בהערות על שוטים 15, 17, 19 ו-28 ביקשת ארבע פעמים אותם שלושה רחפנים לאורך כל הסרטון. אם המחליף מגיע מתחנה אחרת, הוא רחפן רביעי.</p></div>
+    <div class="green"><span class="eyebrow">מה בחרנו, ולמה</span><p>בחרנו לשמור על שלושת הרחפנים, כי הדרישה הזאת חוזרת ארבע פעמים. המחליף יוצא מאותה תחנה, ממשטח אחר באותו מערך. רוחב הרשת נישא ממילא על ידי המפה בשוט 05 ועל ידי הדולי אאוט בשוט 32. אם חשוב לך שהוא יגיע מתחנה אחרת, נוסיף רחפן רביעי, וזה בסדר גמור. תגיד לנו מה עדיף.</p></div>
+  </article>
+  <article class="item">
+    <h3>כמה רחפנים עומדים על המערך כשאחד באוויר</h3>
+    <div class="red"><span class="eyebrow">שתי ההערות מושכות לכיוונים שונים</span><p>בהערה על שוט 15 ביקשת שלושה רחפנים בלבד, השאר בפעולה. אבל באותו רגע בסרט אחד מהשלושה כבר באוויר, ולכן על הגג יכולים לעמוד רק שניים.</p></div>
+    <div class="green"><span class="eyebrow">מה בחרנו, ולמה</span><p>על המערך עומדים הרחפנים שנמצאים בבית, וכל משטח שהתפנה מקבל מסגרת לבנה דקה ותווית <code dir="ltr">ON MISSION</code>. הצופה סופר שלושה רחפנים, רואה שניים ויודע איפה השלישי. אם התכוונת למשהו אחר, תקן אותנו.</p></div>
+  </article>
+  <article class="item">
+    <h3>מי מסמן את הרחפן המתאים למשימה</h3>
+    <div class="red"><span class="eyebrow">שתי ההערות מושכות לכיוונים שונים</span><p>בשלב 6 ברצף כתבת שהמערכת מסמנת את הרחפן בעל המוכנות הגבוהה ביותר והמתאים למשימה. מולו עומדת ההנחיה שלך עצמך מהסבב הראשון: XCurrent היא אנרגיה, זמינות, מוכנות וקישוריות, ולא ניתוח מבצעי ולא קבלת החלטות.</p></div>
+    <div class="green"><span class="eyebrow">מה בחרנו, ולמה</span><p>מוכנות היא בתחום שלכם, התאמה למשימה היא לא. לכן המסך מציג את כל הנתונים בדיוק כפי שביקשת, סוללה, זמן שהייה, מוכנות וקישוריות מצד המשטח, וסוג הרחפן מצד מרשם הצי של המשטרה. התג על הנבחר קורא <code dir="ltr">SELECTED BY DISPATCH</code> ונדלק בעקבות סמן המוקדן. אתה רואה בדיוק את מה שביקשת, וההבדל היחיד הוא מי מסמן. ההבדל הזה מגן עליכם.</p></div>
+  </article>
+</section>
+
+<section>
+  <p class="eyebrow">חלק ד</p>
+  <h2>מה נדחה לשלב העריכה, ולמה</h2>
+  <p class="sec-note">שתי הערות שלך הן הערות אורך ולא הערות מבנה. אנחנו מקבלים אותן במלואן, אבל מבצעים אותן על הטיימליין ולא בסטורי בורד. אנחנו כותבים את זה כאן במפורש כדי שלא ייראה שהתעלמנו.</p>
+  <p class="sec-note">ובמספרים, כדי שלא תצטרך לחשב: הסטורי בורד מסתכם ב-113.5 שניות, ואחרי חמשת הקיצורים האלה, שהם 5.0 שניות ביחד, האורך שיימסר הוא 108.5 שניות.</p>
+  <article class="item">
+    <p class="shot-meta"><span class="ref">הערה 5, שוטים 10 ו-11</span><span class="st st-edit">נדחה לעריכה</span></p>
+    <h3>לא להתעכב על הפורצים</h3>
+    <p class="body">שוט 12 יורד ל-2.5 שניות ושוט 13 ל-2.0 שניות. השינוי הוא באורך בלבד, ולכן הוא נעשה על הטיימליין ולא במבנה השוטים. הסטורי בורד מציג את המבנה, לא את הפריימים הסופיים.</p>
+  </article>
+  <article class="item">
+    <p class="shot-meta"><span class="ref">הערה 18, שוטים 25 עד 27</span><span class="st st-edit">נדחה לעריכה</span></p>
+    <h3>לקצר משמעותית את זמן המסך</h3>
+    <p class="body">שוט 26 יורד ל-2.0, שוט 27 ל-1.5, שוט 28 ל-2.0. אותו היגיון בדיוק. שוט המעצר גם מוגדר מחדש כמידיום שוט מהגב עם ידיים מורמות, וזה שינוי מבני שכן נכנס.</p>
+  </article>
+</section>
+
+<section>
+  <p class="eyebrow">חלק ה</p>
+  <h2>שאלות אליך</h2>
+  <p class="sec-note">שבע נקודות שנשארו פתוחות. אף אחת מהן לא עוצרת אותנו, כולן רצות בינתיים על הצעה שלנו, וכל אחת מסומנת כהצעה בפריים עצמו. אנחנו לא רוצים שתאשר הנחה בלי לדעת שאישרת אותה.</p>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">01</span></p>
+    <h3>אילו רחפנים באיזו סצנה</h3>
+    <p class="body">כתבת שתשלח מייל נפרד עם תמונות. הוא טרם הגיע, ולכן שלושת הרחפנים הנלווים בסרט הם הצעה שלנו, ומסומנים בבירור ככאלה בכל שוט שהם מופיעים בו. רחפן התצפית הראשי כבר נעול. אלה שלושת הדגמים שבחרנו בינתיים, וכולם ממתינים לאישור שלך:</p>
+    <p class="body"><b>המחליף: <code dir="ltr">Skydio X10D</code>.</b> קוודקופטר שחור-פחם מט, עם אשכולות מצלמות ניווט שקועים בפינות הגוף וגימבל שנושא שלוש עדשות. הוא הניגוד הוויזואלי המלא לרחפן הראשי הלבן, כך שאי אפשר לבלבל ביניהם.</p>
+    <p class="body"><b>זה שיושב על המערך ולא ממריא: <code dir="ltr">Ascent AeroSystems Spirit</code>.</b> גליל שחור אנכי בגובה כ-30 סנטימטר, שני רוטורים קואקסיאליים מוערמים בראש ושלוש רגלי חצובה מתחת. <b>אין לו זרועות בכלל</b>, ולכן אין בו מה לקפל, וזו התשובה הישירה לדרישה שלך שהרחפן יישאר פתוח גם כשהוא כבוי.</p>
+    <p class="body"><b>הקטן שבעריסה על הרובוט הקרקעי: <code dir="ltr">Cleo Robotics Dronut</code>.</b> דיסקה שטוחה שחורה בקוטר כף יד, שני רוטורים סגורים בתוך דוקט מרכזי, בלי שום מדחף חשוף. הוא היחיד בסרט בקנה המידה שיושב טבעי בתוך עריסה.</p>
+    <p class="body">השיקול שהוביל אותנו לשניים הראשונים: שניהם תוצרת ארה״ב ומאושרים לרכש ביטחוני אמריקאי, וזה מנקה סיכון רגולטורי מול קהל היעד. אם יש לך העדפה אחרת, זו החלפה של שורה אחת אצלנו.</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">02</span></p>
+    <h3>מהי תמונת המצב שהמשטרה מקבלת בזמן שהרחפן בדרך ליעד</h3>
+    <p class="body">שלב 10 ברצף שלך. מה שהנחנו: פיד חי מוקטן, מרחק, זמן הגעה משוער, גובה ואחוז סוללה, על קיר המסך בחמ״ל. אם התכוונת למשהו אחר, למשל מפה עם מסלול או שכבת נתונים אחרת, זו הערה של שורה אחת ולא של שוט.</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">03</span></p>
+    <h3>צילומי המסך של משאית הכיבוי המתקדמת</h3>
+    <p class="body">הבטחת לשלוח. בינתיים אנחנו רצים על כבאית עם תא נמוך וסולם מפרקי על הגג, כי זה מה שמבדיל חזותית כבאית מתקדמת מכבאית קלאסית בשתי שניות מסך. היא מופיעה מחוץ לפוקוס בשלושת השוטים שהיא נמצאת בהם.</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">04</span></p>
+    <h3>חמשת נתוני שכבות המידע בשוט ה-360</h3>
+    <p class="body">סיכמנו על שוט הסיום עם שכבות מידע שנפתחות סביב המוצר, אבל לא סיכמנו אילו נתונים. הצענו: זמן טעינה מאפס ל-80 אחוז, לכידה ונעילה מגנטית, דירוג עמידות וטווח טמפרטורות, קישור דו כיווני במגע, ומודולריות של משטח אחד עד שישה. המספרים שכתבנו שם, זמן הטעינה, דירוג העמידות וטווח הטמפרטורות, הם ניחוש שלנו ולא נתוני יצרן. הם נכנסו לסטורי בורד כדי שתראה את המבנה. אנחנו צריכים ממך את המספרים האמיתיים לפני שהם נכנסים לסרט.</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">05</span></p>
+    <h3>רישיות הכיתוב על השלדה</h3>
+    <p class="body">בשני רנדרים שקיבלנו הכיתוב הוא <code dir="ltr">XCURRENT</code> באותיות גדולות, ובשני רנדרי המערך הוא <code dir="ltr">Xcurrent</code>. נעלנו על <code dir="ltr">XCURRENT</code> כי שם הוא קריא ברזולוציה הגבוהה ביותר. איזו מהשתיים הנכונה?</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">06</span></p>
+    <h3>מונוכרום או ליים</h3>
+    <p class="body">ראינו שתי גרסאות רשמיות של המערך, אחת עם מבטאי ליים על הרגליים ועל סימוני המרכז, ואחת מונוכרומטית. בחרנו במונוכרומטית, כי פלטת הלילה של הסרט היא נייבי, אפור מתכתי וענבר, והליים היה מושך את העין לרגליים במקום למשטח. אם המותג דורש את הליים, נשאיר אותו כמבטא ונאזן אותו בגרייד. מאשר?</p>
+  </article>
+  <article class="item q">
+    <p class="shot-meta"><span class="n">07</span></p>
+    <h3>הרובוט הקרקעי: זחלי או כלב</h3>
+    <p class="body">שלחת לנו שני כיוונים לרובוט הקרקעי שנושא את העריסה: קובץ הנדסי של רובוט זחלי, <code dir="ltr">mtgr mockup top area v4.STL</code>, וגם תמונות של כלב רובוטי על ארבע רגליים. בחרנו בזחלי, כי קובץ ה-<code dir="ltr">STL</code> כולל משטח התקנה על הגב, כלומר הוא תוכנן להחזיק את העריסה. אם התכוונת לכלב, תקן אותנו.</p>
+  </article>
+</section>
+
+<footer>New Angle · 19.8.2026</footer>
+
+</div>
+
+</body>
+</html>

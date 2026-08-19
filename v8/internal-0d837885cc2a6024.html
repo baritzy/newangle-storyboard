@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b11">
+<title>XCurrent · The Burglars · Storyboard v8 · גרסה פנימית</title>
+<meta name="description" content="סטורי בורד גרסה 8. 34 שוטים, 113.5 שניות, 16:9.">
+<meta property="og:title" content="XCurrent · The Burglars · Storyboard v8">
+<meta property="og:description" content="סטורי בורד גרסה 8. 34 שוטים, 113.5 שניות, 16:9.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="W1-graphics/V8-33.jpg">
+<style>
+:root{
+  --bg:#070b11; --bg-2:#0b1119; --surface:#0d141d; --surface-2:#121b26;
+  --fg:#e9eef4; --fg-2:rgba(233,238,244,.62); --fg-3:rgba(233,238,244,.38);
+  --steel:#7d94ab; --amber:#e0932f; --amber-2:rgba(224,147,47,.55);
+  --line:rgba(199,216,235,.13); --line-2:rgba(199,216,235,.24);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:72px; --s9:112px;
+  --gutter:16px; --maxw:1180px; --bar:44px; --r:2px;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --t-micro:.2s; --t-hover:.35s; --t-reveal:.9s;
+  --font:system-ui,-apple-system,"SF Hebrew","Segoe UI","Noto Sans Hebrew","Arial Hebrew",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);
+     font-size:14px;line-height:1.55;overflow-x:hidden}
+img{max-width:100%}
+a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--amber-2);
+  transition:border-color var(--t-hover) var(--ease)}
+a:hover{border-bottom-color:var(--amber)}
+
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+         color:var(--fg-3);font-variant-numeric:tabular-nums;line-height:1}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;height:var(--bar);background:var(--bg-2);
+     border-bottom:1px solid var(--line);display:flex;align-items:center;gap:var(--s4)}
+.bar .wrap{display:flex;align-items:center;gap:var(--s4);width:100%}
+.bar-name{color:var(--fg-2);flex:1;font-size:10px;font-weight:600;letter-spacing:2px;
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-progress{position:absolute;inset-block-end:-1px;inset-inline-start:0;height:2px;
+              width:var(--p,0%);background:var(--amber);transition:width var(--t-hover) linear}
+
+/* masthead */
+.masthead{padding-block:var(--s8) var(--s6)}
+.masthead .eyebrow{display:block;color:var(--steel);margin-bottom:var(--s5)}
+h1{margin:0;font-size:clamp(32px,8vw,64px);font-weight:800;letter-spacing:-.03em;line-height:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin:var(--s5) 0 0;
+          font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+          color:var(--fg-3);font-variant-numeric:tabular-nums}
+.meta-row span:first-child{color:var(--fg-2)}
+
+/* changes */
+.changes{padding-block:var(--s6);border-top:1px solid var(--line-2);
+         border-bottom:1px solid var(--line-2)}
+.changes .eyebrow{display:block;margin-bottom:var(--s4)}
+.changes ul{margin:0;padding:0;list-style:none;max-width:64ch}
+.changes li{position:relative;padding-inline-start:var(--s4);margin-bottom:var(--s3);
+            color:var(--fg-2);font-size:14px;line-height:1.55}
+.changes li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;
+                    width:6px;height:1px;background:var(--line-2)}
+.changes .note{margin:var(--s5) 0 0;font-size:13px;color:var(--fg-3);max-width:64ch}
+.changes .length{margin:var(--s5) 0 0;font-size:14px;color:var(--fg);max-width:64ch;
+                 padding-inline-start:var(--s4);border-inline-start:1px solid var(--amber-2)}
+
+/* sequence */
+section.seq{padding-block:var(--s8)}
+.seq-head{padding-bottom:var(--s3);border-bottom:1px solid var(--line-2);
+          display:flex;flex-wrap:wrap;gap:var(--s3) var(--s4);align-items:baseline}
+.seq-head h2{flex-basis:100%;margin:var(--s3) 0 0;font-size:clamp(21px,3.6vw,32px);
+             font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.seq-note{margin:var(--s5) 0 0;padding-inline-start:var(--s4);
+          border-inline-start:1px solid var(--line-2);color:var(--fg-3);
+          font-size:13px;max-width:64ch}
+
+/* shot */
+.shot{display:grid;grid-template-columns:1fr;gap:var(--s4);padding:var(--s5) 0;
+      border-top:1px solid var(--line)}
+.shot:first-of-type{border-top:0}
+.frame{margin:0;position:relative;background:#000;aspect-ratio:16/9;overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;border-radius:0;
+           opacity:0;transition:opacity 1.2s var(--ease)}
+.frame img.loaded{opacity:1}
+.frame-pair{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-2);
+            aspect-ratio:32/9}
+.frame-pair img{aspect-ratio:16/9;height:auto}
+.frame-pair figcaption{position:absolute;inset-block-end:var(--s2);inset-inline-end:var(--s3);
+                       color:var(--fg-2);z-index:2}
+.frame-gfx{background:var(--surface-2);display:flex;align-items:center;justify-content:center}
+.frame-gfx::after{content:"";position:absolute;inset:12px;border:1px solid var(--line-2);
+                  pointer-events:none}
+.gfx-in{text-align:center;color:var(--steel);font-size:13px;padding:var(--s5);line-height:1.5}
+.gfx-in .eyebrow{display:block;margin-bottom:var(--s2);color:var(--fg-3)}
+.gfx-in b{font-weight:500}
+
+/* stage chips, his own numbering */
+.chips{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;flex-wrap:wrap;
+       direction:ltr;justify-content:flex-start;
+       gap:6px;padding:8px 10px 22px;pointer-events:none;
+       background:linear-gradient(to bottom,rgba(7,11,17,.78),rgba(7,11,17,0))}
+.chip{display:inline-flex;align-items:center;gap:6px;color:#fff;font-size:11px;
+      font-weight:500;letter-spacing:.02em;line-height:1;direction:ltr}
+.chip i{display:inline-flex;align-items:center;justify-content:center;
+        width:20px;height:20px;border-radius:2px;background:#fff;color:#070b11;
+        font-style:normal;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+
+.shot-meta{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:baseline;
+           margin:0 0 var(--s2);font-size:10px;font-weight:600;letter-spacing:2px;
+           text-transform:uppercase;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.shot-meta .n{color:var(--fg-2)}
+.shot-meta .flag{display:none;letter-spacing:2px}
+.shot-meta .flag-a{color:var(--amber-2);letter-spacing:1px}
+h3{margin:0 0 var(--s1);font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.desc{margin:0;font-size:14px;line-height:1.55;color:var(--fg-2);max-width:62ch}
+.ost{margin:var(--s3) 0 0;padding-inline-start:var(--s3);
+     border-inline-start:1px solid var(--amber-2);
+     font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--amber-2);
+     text-align:left}
+.ost .eyebrow{display:block;margin-bottom:3px;color:var(--fg-3);font-size:9px}
+.ost span{display:block}
+
+/* version marker. a 1px line on the starting edge of the frame, not a shadow. */
+.shot[data-state="updated"] .frame::before,
+.shot[data-state="new"] .frame::before{content:"";position:absolute;z-index:4;
+  top:0;bottom:0;inset-inline-start:0;width:2px}
+.shot[data-state="updated"] .frame::before{background:var(--amber)}
+.shot[data-state="updated"] .flag{display:inline;color:var(--amber)}
+.shot[data-state="updated"] .flag::after{content:"עודכן"}
+.shot[data-state="new"] .frame::before{background:var(--steel)}
+.shot[data-state="new"] .flag{display:inline;color:var(--steel)}
+.shot[data-state="new"] .flag::after{content:"חדש"}
+
+footer{padding-block:var(--s7);border-top:1px solid var(--line);text-align:center;
+       color:var(--fg-3);font-size:10px;font-weight:600;letter-spacing:2px;
+       text-transform:uppercase}
+
+/* internal only. absent from the client page. */
+.int-banner{margin:0;padding:var(--s5) var(--gutter);background:#b3261e;color:#fff}
+.int-banner .wrap{padding-inline:0}
+.int-banner .wrap > b{display:block;font-size:18px;font-weight:800;letter-spacing:-.01em;margin-bottom:var(--s2)}
+.int-banner p b{font-weight:800}
+.int-banner p{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.92);max-width:70ch}
+.int-banner ul{margin:var(--s3) 0 0;padding-inline-start:var(--s4);font-size:13px;
+               color:rgba(255,255,255,.92)}
+.int-banner li{margin-bottom:var(--s2)}
+.int-banner li:last-child{margin-bottom:0}
+.int-banner .k{display:inline-block;font-weight:800;padding:1px 7px;margin-inline-end:6px;
+               border-radius:2px;font-size:11px;letter-spacing:.5px;vertical-align:1px}
+.int-banner .k-cheap{background:#ffb300;color:#241a00}
+.int-banner .k-hard{background:#2b0b09;color:#ffb4ab}
+.shot.is-manual .frame{outline:3px solid #ff5449;outline-offset:0}
+.shot.is-manual-cheap .frame{outline-color:#ffb300}
+.manual-badge{position:absolute;z-index:5;inset-block-start:0;inset-inline-end:0;
+              background:#b3261e;color:#fff;font-size:11px;font-weight:800;
+              letter-spacing:.5px;padding:6px 10px;max-width:calc(100% - 16px)}
+.is-manual-cheap .manual-badge{background:#ffb300;color:#241a00}
+/* the chips bar runs the full width of the frame, so keep it clear of the badge */
+.shot.is-manual .chips{padding-inline-start:136px}
+.manual{margin:var(--s3) 0 0;padding:var(--s3) var(--s4);
+        border-inline-start:3px solid #ff5449;background:rgba(179,38,30,.16);
+        color:var(--fg);font-size:13px;line-height:1.5;max-width:62ch}
+.is-manual-cheap .manual{border-inline-start-color:#ffb300;background:rgba(255,179,0,.14)}
+.manual .eyebrow{display:block;margin-bottom:var(--s2);color:#ff8a80}
+.is-manual-cheap .manual .eyebrow{color:#ffca62}
+.manual p{margin:0}
+
+/* reveal */
+.shot,.seq-head,.changes{opacity:0;transform:translateY(16px);
+  transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
+.is-in{opacity:1;transform:none}
+
+@media (min-width:700px){
+  :root{--gutter:32px}
+  .frame{max-width:640px}
+  .frame-pair{max-width:640px}
+  .desc{max-width:58ch}
+}
+@media (min-width:1081px){
+  :root{--gutter:48px}
+  .shot{grid-template-columns:1.32fr 1fr;gap:var(--s6);align-items:start;padding:var(--s6) 0}
+  .frame,.frame-pair{max-width:none}
+  .info{border-inline-start:1px solid var(--line);padding-inline-start:var(--s5)}
+  section.seq{padding-block:var(--s9)}
+}
+@media (max-width:379px){ .bar-name{display:none} }
+@media (prefers-reduced-motion:reduce){
+  .shot,.seq-head,.changes{opacity:1;transform:none;transition:none}
+  .frame img{opacity:1;transition:none}
+  .bar-progress{transition:none}
+}
+@media print{
+  :root{--bg:#fff;--bg-2:#fff;--fg:#000;--fg-2:#333;--fg-3:#666;--line:#ccc;--line-2:#bbb;
+        --amber:#8a5a10;--amber-2:#8a5a10;--steel:#40556b}
+  body{background:#fff;color:#000}
+  .bar{display:none}
+  .shot,.seq-head,.changes{opacity:1;transform:none}
+  .frame img{opacity:1}
+  .shot{break-inside:avoid;page-break-inside:avoid}
+  section.seq{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<div class="bar" id="bar">
+  <div class="wrap">
+    <span class="eyebrow bar-seq" id="barSeq">רצף 01 מתוך 06</span>
+    <span class="bar-name" id="barName">הקריאה</span>
+  </div>
+  <i class="bar-progress" id="barP"></i>
+</div>
+
+<div class="int-banner">
+  <div class="wrap">
+    <b>גרסה פנימית. שישה שוטים ממתינים לתיקון ידני. לא לשלוח ללקוח.</b>
+    <p>הדף הזה זהה לדף שיוצא ללקוח, חוץ מהבאנר הזה ומהסימונים הצבעוניים. ששת השוטים למטה מסומנים במסגרת צבעונית, בתג <b>תיקון ידני</b> על הפריים, ובהסבר מתחת לתיאור השוט. הם מחולקים לשתי קטגוריות לפי מה שהם עולים, וכדאי להתחיל מהזולים.</p>
+    <ul>
+      <li><span class="k k-cheap">זול</span>ייצור מחדש בודד של כ-2 קרדיטים בשרשור פריים אב קיים. שוט 07: DRONE_B נראה שונה מאשר בשוטים 16 ו-17, הפרת continuity שהלקוח חזר עליה ארבע פעמים, ולא ניתן לתקן בפוסט כי ההבדל הוא גיאומטריית שלדה. הפתרון: ייצור מחדש בשרשור A8-4 כרפרנס. שוט 29: הפריים מצלם שלושה משטחים בזמן שהתווית אומרת שישה. הפתרון: ייצור מחדש בשרשור A8-2, מאסטר המערך.</li>
+      <li><span class="k k-hard">יקר</span>המחולל נלחם בזה ודורש כמה סבבים. שוטים 24, 25 ו-30: העריסה על הרובוט הקרקעי צריכה ארבע דפנות בגובה שווה, כולן מעל גובה הרחפן. כרגע יש שלוש. שוט 33: רשת המשטח צריכה להיות 4 על 4, שישה עשר אריחים. כרגע 3 על 3.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">NEW ANGLE</p>
+  <h1>XCurrent · The Burglars</h1>
+  <p class="meta-row">
+    <span>Storyboard</span><span>גרסה 8</span><span>19.8.26</span>
+    <span>34 שוטים</span><span>3 חדשים</span><span>26 עודכנו</span>
+    <span dir="ltr">16:9</span>
+  </p>
+</header>
+
+<section class="changes">
+  <p class="eyebrow">מה השתנה בגרסה הזאת</p>
+  <ul>
+      <li>החמ״ל רואה את הצי על המסך, בוחר בעצמו ומאשר לפני שהרחפן ממריא. הרצף שביקשת, מהמפה על המסך ועד החזרה למסך, גדל מ-13.5 שניות ל-26.</li>
+      <li>אחרי ההמראה חוזרים אל מסך החמ״ל, ומקבלים ממנו תמונת מצב בזמן שהרחפן בדרך ליעד.</li>
+      <li>אחוז הסוללה רץ לאורך הסרט על הפוטג׳ עצמו ולצידו זמן השהייה שנותר. שני כרטיסי גרפיקה שעמדו לבד ירדו.</li>
+      <li>המחליף מוזמן מראש מתוך חישוב זמן ולא מאחוז, ויש רגע שבו שני רחפנים באוויר יחד.</li>
+      <li>אותם שלושה רחפנים לאורך כל הסרט, וכל משטח שהתפנה מסומן בפועל.</li>
+      <li>העריסה על הרובוט נבנתה מחדש: ארבע דפנות שוות, והרחפן יושב בתוכה ולא עליה.</li>
+      <li>שוט המוצר הסוגר נבנה מחדש מול הרנדרים שלכם, פרט אחרי פרט.</li>
+  </ul>
+  <p class="length">אורך הסרט בסטורי בורד: 113.5 שניות, מול 106.5 בגרסה הקודמת. אחרי חמשת הקיצורים שביקשת, שהם 5 שניות ביחד, האורך שיימסר הוא 108.5 שניות. הסרט גדל בשבע שניות מול הגרסה הקודמת, וכולן הלכו לרצף שביקשת.</p>
+  <p class="note">הרחפנים המשניים והכבאית שרואים בפריימים הם ההצעה שלנו וממתינים לתמונות שלך. השוטים שנוגעים בזה מסומנים בשורת המידע. המענה המפורט לכל ההערות נמצא ב<a href="%D7%9E%D7%A2%D7%A0%D7%94-%D7%9C%D7%94%D7%A2%D7%A8%D7%95%D7%AA-%D7%A6%D7%93%D7%A7-v8.html">מסמך נפרד</a>.</p>
+</section>
+
+<main>
+
+<section class="seq" id="seq-01" data-seq="1" data-name="הקריאה">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 01 מתוך 06</span>
+    <h2>הקריאה</h2>
+  </div>
+  <article class="shot is-hero" data-state="" data-i="1">
+    <figure class="frame frame-pair">
+      <img src="W1-graphics/V8-01-start.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <img src="W1-graphics/V8-01-end.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <figcaption class="eyebrow">start / end</figcaption>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">01</span><span class="ref">v7 01</span><span class="flag"></span></p>
+      <h3>העין</h3>
+      <p class="desc">העין עצומה, נפקחת בבת אחת, והמבט נע אל הרעש שמלמטה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>02:47 AM</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="" data-i="2">
+    <figure class="frame">
+      <img src="W1-graphics/V8-02.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">02</span><span class="ref">v7 02</span><span class="flag"></span></p>
+      <h3>המסדרון</h3>
+      <p class="desc">מדרגות יורדות לחושך, אור חמים עולה מלמטה.</p>
+    </div>
+  </article>
+  <article class="shot" data-state="" data-i="3">
+    <figure class="frame">
+      <img src="W1-graphics/V8-03.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">03</span><span class="ref">v7 03</span><span class="flag"></span></p>
+      <h3>הקריאה</h3>
+      <p class="desc">יד נשלחת אל הטלפון. חיוג. חיתוך חד.</p>
+    </div>
+  </article>
+  <article class="shot" data-state="" data-i="4">
+    <figure class="frame">
+      <img src="W1-graphics/V8-04.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">04</span><span class="ref">v7 04</span><span class="flag"></span></p>
+      <h3>מוקד החירום</h3>
+      <p class="desc">הקריאה מתקבלת.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>Emergency call received</span></div>
+    </div>
+  </article>
+</section>
+
+<section class="seq" id="seq-02" data-seq="2" data-name="החמ״ל רואה, בוחר, מאשר, משגר">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 02 מתוך 06</span>
+    <h2>החמ״ל רואה, בוחר, מאשר, משגר</h2>
+  </div>
+  <article class="shot" data-state="updated" data-i="5">
+    <figure class="frame">
+      <img src="W1-graphics/V8-05.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="chips">
+        <span class="chip"><i>1</i><bdi dir="rtl">מפה עם כמה נקודות</bdi></span>
+        <span class="chip"><i>2</i><bdi dir="rtl">נקודה נבחרת וגדלה לחלון</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">05</span><span class="ref">v7 05</span><span class="flag"></span></p>
+      <h3>הרשת על המסך</h3>
+      <p class="desc">על מסך החמ״ל נפרשת מפת האזור. נקודה אחת נבחרת ונפתחת לחלון.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>NETWORK STATUS · 4 STATIONS · 22 PADS READY</span><span>INTRUSION DETECTED</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="6">
+    <figure class="frame">
+      <img src="W1-graphics/V8-06.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="chips">
+        <span class="chip"><i>3</i><bdi dir="rtl">משטח על גג עם שלושה רחפנים</bdi></span>
+        <span class="chip"><i>4</i><bdi dir="rtl">מעבר חלק אל הגג</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">06</span><span class="ref">v7 06</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span><span class="flag-a">דגם כבאית להשלמה</span></p>
+      <h3>החלון נפתח אל הגג</h3>
+      <p class="desc">בתוך החלון נראה משטח XCurrent על גג תחנת הכיבוי, ועליו שלושה רחפנים. החלון גדל, ואנחנו כבר על הגג עצמו.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>STATION 07</span></div>
+    </div>
+  </article>
+  <article class="shot is-hero is-manual is-manual-cheap" data-state="new" data-i="7">
+    <figure class="frame">
+      <img src="W1-graphics/V8-07.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · זול</div>
+      <div class="chips">
+        <span class="chip"><i>5</i><bdi dir="rtl">חוג סביב המשטח, גרפיקה מעל כל רחפן</bdi></span>
+        <span class="chip"><i>6</i><bdi dir="rtl">המוקדן מסמן את המתאים למשימה</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">07</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>שלושת הרחפנים והנתונים שלהם</h3>
+      <p class="desc">המצלמה נפתחת סביב המשטח. מעל כל רחפן עולים הנתונים שלו: סוללה, זמן שהייה, מוכנות וקישוריות. סמן המוקדן בוחר את הרחפן, והתג נדלק על הנבחר.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE A · BATTERY 100% · ENDURANCE 38:00 · READINESS 100% · LINK SECURE · TYPE SURVEILLANCE</span><span>DRONE B · BATTERY 98% · ENDURANCE 34:20 · READINESS 96% · LINK SECURE · TYPE THERMAL ISR</span><span>DRONE C · BATTERY 54% · ENDURANCE 19:10 · READINESS 54% · LINK SECURE · TYPE ALL-WEATHER ISR</span><span>SELECTED BY DISPATCH</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · זול. ייצור מחדש בודד של כ-2 קרדיטים בשרשור פריים אב קיים</span><p>DRONE_B נראה כאן שונה מאשר ב-V8-16 וב-V8-17. הפרת continuity, והלקוח חזר על הדרישה הזאת ארבע פעמים. לא ניתן לתקן בפוסט, ההבדל הוא גיאומטריית שלדה. הפתרון: ייצור מחדש בשרשור A8-4 כרפרנס.</p></div>
+    </div>
+  </article>
+  <article class="shot" data-state="new" data-i="8">
+    <figure class="frame">
+      <img src="W1-graphics/V8-08.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="chips">
+        <span class="chip"><i>7</i><bdi dir="rtl">אישור המוקדן</bdi></span>
+        <span class="chip"><i>8</i><bdi dir="rtl">זרימת מידע מהמשטח לרחפן</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">08</span><span class="flag"></span></p>
+      <h3>האישור והפקודה</h3>
+      <p class="desc">חזרה לחמ״ל. המשטח והרחפן הנבחר על המסך, המוקדן מאשר, והפקודה יוצאת.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>PAD 07-01 · DRONE A · READY</span><span>LAUNCH AUTHORIZED BY COMMAND</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="9">
+    <figure class="frame">
+      <img src="W1-graphics/V8-09.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="chips">
+        <span class="chip"><i>9</i><bdi dir="rtl">הרחפן נדלק וממריא</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">09</span><span class="ref">v7 07</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span><span class="flag-a">דגם כבאית להשלמה</span></p>
+      <h3>הרחפן נדלק וממריא</h3>
+      <p class="desc">נורות הסטטוס נדלקות, המדחפים מסתובבים, והרחפן עוזב את המשטח. השאר נשארים מוכנים.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE A · AIRBORNE</span><span>UNIT DISPATCHED, EN ROUTE</span></div>
+    </div>
+  </article>
+  <p class="seq-note">שלב 11 ברצף שלך הוא עיקרון קומפוזיציה ולא אירוע, ולכן אין לו שוט משלו. הוא חל על כל הסרט: המשטח קבוע במרכז השליש התחתון של הפריים, המידע ומנגנון ההפעלה איתו, והרחפן הוא זה שנכנס ויוצא.</p>
+</section>
+
+<section class="seq" id="seq-03" data-seq="3" data-name="הרחפן בזירה, והחזרה למסך">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 03 מתוך 06</span>
+    <h2>הרחפן בזירה, והחזרה למסך</h2>
+  </div>
+  <article class="shot" data-state="updated" data-i="10">
+    <figure class="frame">
+      <img src="W1-graphics/V8-10.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">10</span><span class="ref">v7 08</span><span class="flag"></span></p>
+      <h3>בדרך לזירה</h3>
+      <p class="desc">הרחפן חוצה את השכונה מלמעלה. בזמן שהוא בדרך, המשטרה כבר מקבלת ממנו תמונת מצב.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE A · EN ROUTE</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="new" data-i="11">
+    <figure class="frame">
+      <img src="W1-graphics/V8-11.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="chips">
+        <span class="chip"><i>10</i><bdi dir="rtl">חזרה למסך המשטרה, תמונת מצב בדרך ליעד</bdi></span>
+      </div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">11</span><span class="flag"></span></p>
+      <h3>חזרה למסך החמ״ל</h3>
+      <p class="desc">בזמן שהוא בדרך, חוזרים אל מסך החמ״ל. עליו כבר יושבת תמונת המצב שהרחפן שולח.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>POLICE C2 · LIVE FEED</span><span>DRONE A · DIST 1.2 km · ETA 00:41 · ALT 62 m</span><span>SITUATION PICTURE RECEIVED</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="12">
+    <figure class="frame">
+      <img src="W1-graphics/V8-12.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">12</span><span class="ref">v7 10</span><span class="flag"></span></p>
+      <h3>הגעה לבית</h3>
+      <p class="desc">הרחפן מגיע ומקיף את הבית. הדלת הקדמית פתוחה למחצה.</p>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="13">
+    <figure class="frame">
+      <img src="W1-graphics/V8-13.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">13</span><span class="ref">v7 11</span><span class="flag"></span></p>
+      <h3>תמונת מצב חיצונית</h3>
+      <p class="desc">החצר, הכניסות, הרכב החונה. הפיד מגיע לחמ״ל ולניידת בו זמנית.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>POLICE C2 · LIVE FEED</span><span>ANALYSIS AND MARKING BY POLICE C2</span><span>PERIMETER OBSERVED · FRONT ENTRY, OPEN</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="14">
+    <figure class="frame">
+      <img src="W1-graphics/V8-14.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">14</span><span class="ref">v7 12</span><span class="flag"></span></p>
+      <h3>בתוך הניידת</h3>
+      <p class="desc">המסך בניידת תופס חצי פריים. עליו הרחפן הפעיל והסוללה שלו יורדת.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>IN-VEHICLE TERMINAL</span><span>DRONE A · 76% · ENDURANCE REMAINING 18:30</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="15">
+    <figure class="frame">
+      <img src="W1-graphics/V8-15.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">15</span><span class="ref">v7 13 + 14</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>המסך מתמלא, הזירה מצד אחד והמחליף מהצד השני</h3>
+      <p class="desc">המסך מתמלא. מצד אחד מה שהרחפן רואה עכשיו, מצד שני המשטח הבא עם רחפן שכבר מוכן.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>SCENE · DRONE A · 68% · ENDURANCE REMAINING 12:45</span><span>RELIEF TRANSIT + RESERVE 12:10 → SCHEDULE RELIEF</span><span>STATION 07 · PAD 02 · DRONE B · 100% · READY</span><span>RELIEF SCHEDULED</span></div>
+    </div>
+  </article>
+</section>
+
+<section class="seq" id="seq-04" data-seq="4" data-name="חילוף מתוכנן מראש">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 04 מתוך 06</span>
+    <h2>חילוף מתוכנן מראש</h2>
+  </div>
+  <article class="shot" data-state="updated" data-i="16">
+    <figure class="frame">
+      <img src="W1-graphics/V8-16.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">16</span><span class="ref">v7 15</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>המערך, שלושה רחפנים</h3>
+      <p class="desc">המערך על הגג. שלושה משטחים תפוסים, השאר בפעולה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE B · 100%</span><span>DRONE C · 71%</span><span>PAD 07-01 · ON MISSION</span><span>PLATFORM AGNOSTIC · ANY DRONE</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="17">
+    <figure class="frame">
+      <img src="W1-graphics/V8-17.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">17</span><span class="ref">v7 16</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>הפקודה עוברת מהמשטח אל הרחפן</h3>
+      <p class="desc">זום על המשטח. הפקודה זורמת ממנו אל הרחפן, ולידו נפתח חלון שבוחר לאן הוא הולך. הרחפן עדיין יושב.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DATA UPLINK</span><span>DESTINATION: SCENE PAD</span><span>DRONE B · 100%</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="18">
+    <figure class="frame">
+      <img src="W1-graphics/V8-18.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">18</span><span class="ref">v7 17</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>המראה מהמערך</h3>
+      <p class="desc">הנורות נדלקות ברצף, המדחפים מסתובבים, והוא עוזב. השאר נשארים.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE B · AIRBORNE</span><span>RELIEF EN ROUTE</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="19">
+    <figure class="frame">
+      <img src="W1-graphics/V8-19.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">19</span><span class="ref">v7 18</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>החפיפה</h3>
+      <p class="desc">שני רחפנים באוויר יחד באותו פריים. הראשון עוזב רק אחרי שהשני מיוצב. קו אווירי מחבר בין המשטח ליעד, ומתחתם, על גג המרפאה, משטח בודד ממתין.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>OVERLAP CONFIRMED · COVERAGE CONTINUOUS</span><span>CLINIC 02 · 1 PAD · AVAILABLE</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="20">
+    <figure class="frame">
+      <img src="W1-graphics/V8-20.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">20</span><span class="ref">v7 19</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>חזרה למשטח</h3>
+      <p class="desc">הרחפן הראשון נוחת על המערך, לצד הרחפן שכבר עומד שם.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>PAD READY TO RECEIVE → LANDED</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="21">
+    <figure class="frame">
+      <img src="W1-graphics/V8-21.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">21</span><span class="ref">v7 20</span><span class="flag"></span></p>
+      <h3>מגע, טעינה והורדת מידע</h3>
+      <p class="desc">ברגע שהוא יושב, הוא מתחיל להיטען ובאותו רגע מוריד את כל מה שאסף.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>CHARGING</span><span>DATA DOWNLINK</span><span>NEW TASKING UPLOADED · READY</span></div>
+    </div>
+  </article>
+</section>
+
+<section class="seq" id="seq-05" data-seq="5" data-name="אותה תשתית, על פלטפורמה ניידת">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 05 מתוך 06</span>
+    <h2>אותה תשתית, על פלטפורמה ניידת</h2>
+  </div>
+  <article class="shot" data-state="updated" data-i="22">
+    <figure class="frame">
+      <img src="W1-graphics/V8-22.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">22</span><span class="ref">v7 21</span><span class="flag"></span></p>
+      <h3>הכוח מגיע</h3>
+      <p class="desc">הרכב עוצר, הדלת האחורית נפתחת.</p>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="23">
+    <figure class="frame">
+      <img src="W1-graphics/V8-23.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">23</span><span class="ref">v7 22</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>העריסה יורדת</h3>
+      <p class="desc">הרובוט יורד מהרכב, ועל גבו עריסה סגורה עם רחפן קטן טעון בתוכה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>XPAD MOBILE</span></div>
+    </div>
+  </article>
+  <article class="shot is-manual is-manual-hard" data-state="updated" data-i="24">
+    <figure class="frame">
+      <img src="W1-graphics/V8-24.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · יקר</div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">24</span><span class="ref">v7 23</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>חצי חוג סביב העריסה</h3>
+      <p class="desc">חצי סיבוב סביב העריסה תוך כדי תנועה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE READY · 100%</span><span>MAGNETIC CAPTURE</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · יקר. המחולל נלחם בזה ודורש כמה סבבים</span><p>העריסה על הרובוט הקרקעי: צריך ארבע דפנות בגובה שווה, כולן מעל גובה הרחפן. כרגע יש שלוש, והצד הקדמי הוא סינר כסוף נמוך.</p></div>
+    </div>
+  </article>
+  <article class="shot is-manual is-manual-hard" data-state="updated" data-i="25">
+    <figure class="frame">
+      <img src="W1-graphics/V8-25.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · יקר</div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">25</span><span class="ref">v7 24</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>הרחפן הקטן יוצא</h3>
+      <p class="desc">ממריא ישירות מגב הרובוט ונכנס אל הבית דרך הדלת הפתוחה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>AERIAL ASSET DEPLOYED</span><span>ENTERING STRUCTURE</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · יקר. המחולל נלחם בזה ודורש כמה סבבים</span><p>העריסה על הרובוט הקרקעי: צריך ארבע דפנות בגובה שווה, כולן מעל גובה הרחפן. כרגע יש שלוש, והצד הקדמי הוא סינר כסוף נמוך.</p></div>
+    </div>
+  </article>
+</section>
+
+<section class="seq" id="seq-06" data-seq="6" data-name="זיהוי, חזרה למוכנות, סגירה">
+  <div class="seq-head">
+    <span class="eyebrow">רצף 06 מתוך 06</span>
+    <h2>זיהוי, חזרה למוכנות, סגירה</h2>
+  </div>
+  <article class="shot" data-state="updated" data-i="26">
+    <figure class="frame">
+      <img src="W1-graphics/V8-26.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">26</span><span class="ref">v7 25</span><span class="flag"></span></p>
+      <h3>הזיהוי מבפנים</h3>
+      <p class="desc">דרך מצלמת הרחפן הקטן, הפעם הראשונה שרואים אותם מקרוב.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>LIVE FEED · DRONE MICRO</span><span>SUBJECTS: 2 · RESIDENT: 1</span></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="27">
+    <figure class="frame">
+      <img src="W1-graphics/V8-27.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">27</span><span class="ref">v7 26</span><span class="flag"></span></p>
+      <h3>הם מבחינים</h3>
+      <p class="desc">רגע ההפתעה. הם פונים לברוח.</p>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="28">
+    <figure class="frame">
+      <img src="W1-graphics/V8-28.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">28</span><span class="ref">v7 27</span><span class="flag"></span></p>
+      <h3>המעצר</h3>
+      <p class="desc">מהגב, ידיים מורמות, המולת הכוחות סביבם.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>SUBJECTS IN CUSTODY</span></div>
+    </div>
+  </article>
+  <article class="shot is-manual is-manual-cheap" data-state="updated" data-i="29">
+    <figure class="frame">
+      <img src="W1-graphics/V8-29.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · זול</div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">29</span><span class="ref">v7 28</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>טעינה</h3>
+      <p class="desc">הרחפן חוזר למשטח ומתחיל להיטען. השאר במקומם.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>DRONE A · 78% · ENDURANCE 28:10 PROJECTED</span><span>DRONE C · 100%</span><span>PAD 07-02 · ON MISSION</span><span>CHARGING</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · זול. ייצור מחדש בודד של כ-2 קרדיטים בשרשור פריים אב קיים</span><p>הפריים מצלם שלושה משטחים בזמן שהתווית אומרת שישה. הפתרון: ייצור מחדש בשרשור A8-2, מאסטר המערך.</p></div>
+    </div>
+  </article>
+  <article class="shot is-manual is-manual-hard" data-state="updated" data-i="30">
+    <figure class="frame">
+      <img src="W1-graphics/V8-30.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · יקר</div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">30</span><span class="ref">v7 29</span><span class="flag"></span><span class="flag-a">דגם רחפן להשלמה</span></p>
+      <h3>הרחפן הקטן חוזר לעריסה</h3>
+      <p class="desc">חוזר אל העריסה, הדפנות נסגרות עליו, מתחיל להיטען.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>SECURED · CHARGING</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · יקר. המחולל נלחם בזה ודורש כמה סבבים</span><p>העריסה על הרובוט הקרקעי: צריך ארבע דפנות בגובה שווה, כולן מעל גובה הרחפן. כרגע יש שלוש, והצד הקדמי הוא סינר כסוף נמוך.</p></div>
+    </div>
+  </article>
+  <article class="shot" data-state="updated" data-i="31">
+    <figure class="frame">
+      <img src="W1-graphics/V8-31.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">31</span><span class="ref">v7 30</span><span class="flag"></span></p>
+      <h3>Sleep mode</h3>
+      <p class="desc">הנורות נכבות אחת אחרי השנייה. רדום ומוכן למשימה הבאה.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>CHARGING COMPLETE · SLEEP MODE · READY FOR NEXT MISSION</span></div>
+    </div>
+  </article>
+  <article class="shot is-hero" data-state="updated" data-i="32">
+    <figure class="frame">
+      <img src="W1-graphics/V8-32.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">32</span><span class="ref">v7 31</span><span class="flag"></span><span class="flag-a">דגם כבאית להשלמה</span></p>
+      <h3>העיירה</h3>
+      <p class="desc">דולי אאוט מהבית אל העיירה כולה. משטחים על גגות לאורכה, וקווים נמתחים ביניהם לרשת אחת.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>PERSISTENT AIR COVERAGE</span><span>AUTONOMOUS ENERGY NETWORK</span></div>
+    </div>
+  </article>
+  <article class="shot is-hero is-manual is-manual-hard" data-state="updated" data-i="33">
+    <figure class="frame">
+      <img src="W1-graphics/V8-33.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="manual-badge">תיקון ידני · יקר</div>
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">33</span><span class="ref">v7 32</span><span class="flag"></span><span class="flag-a">נתוני מוצר להשלמה</span></p>
+      <h3>המוצר, סיבוב 360</h3>
+      <p class="desc">שוט הסיום. סיבוב מלא סביב ה-XPAD Flex 100, ותוך כדי הסיבוב נפתחות סביבו שכבות המידע.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>0 TO 80% IN 22 MIN</span><span>MAGNETIC CAPTURE AND LOCK</span><span>IP66 · -20 TO +55 C</span><span>TWO-WAY DATA LINK ON CONTACT</span><span>MODULAR · 1 TO 6 PADS</span></div>
+      <div class="manual"><span class="eyebrow">תיקון ידני של איתן, טרם בוצע · יקר. המחולל נלחם בזה ודורש כמה סבבים</span><p>רשת המשטח: צריך 4 על 4, שישה עשר אריחים. כרגע 3 על 3. הייחוס הוא הרנדר הרשמי flex100-array6-mono.jpeg.</p></div>
+    </div>
+  </article>
+  <article class="shot" data-state="" data-i="34">
+    <figure class="frame">
+      <img src="W1-graphics/V8-34.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </figure>
+    <div class="info">
+      <p class="shot-meta"><span class="n">34</span><span class="ref">v7 33</span><span class="flag"></span></p>
+      <h3>סגירה</h3>
+      <p class="desc">לוגו וטאגליין.</p>
+      <div class="ost" dir="ltr"><span class="eyebrow">On screen</span><span>One Infrastructure. Every Mission. Always Ready.</span></div>
+    </div>
+  </article>
+</section>
+</main>
+
+<footer>New Angle · 19.8.2026</footer>
+
+</div>
+
+<script>
+(function(){
+  var SHOTS=34;
+  var bar=document.getElementById('bar'),
+      bs=document.getElementById('barSeq'), bn=document.getElementById('barName'),
+      bp=document.getElementById('barP');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  Array.prototype.forEach.call(document.querySelectorAll('.frame img'),function(im){
+    if(im.complete){im.classList.add('loaded');}
+    else{im.addEventListener('load',function(){im.classList.add('loaded');});
+         im.addEventListener('error',function(){im.classList.add('loaded');});}
+  });
+
+  if('IntersectionObserver' in window && !reduce){
+    var rev=new IntersectionObserver(function(es){
+      es.forEach(function(e,i){
+        if(e.isIntersecting){
+          var el=e.target;
+          setTimeout(function(){el.classList.add('is-in');}, (i%6)*60);
+          rev.unobserve(el);
+        }
+      });
+    },{rootMargin:'0px 0px -12% 0px'});
+    Array.prototype.forEach.call(document.querySelectorAll('.shot,.seq-head,.changes'),
+      function(el){rev.observe(el);});
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('.shot,.seq-head,.changes'),
+      function(el){el.classList.add('is-in');});
+  }
+
+  var shots=Array.prototype.slice.call(document.querySelectorAll('.shot'));
+  var last=null;
+  function sync(){
+    var top=bar.offsetHeight+8, cur=shots[0];
+    for(var i=0;i<shots.length;i++){
+      if(shots[i].getBoundingClientRect().top<=top) cur=shots[i]; else break;
+    }
+    if(cur===last) return; last=cur;
+    var sec=cur.closest('section.seq');
+    bs.textContent='רצף '+sec.id.replace('seq-','')+' מתוך 06';
+    bn.textContent=sec.getAttribute('data-name');
+    bp.style.width=(parseFloat(cur.getAttribute('data-i'))/SHOTS*100).toFixed(2)+'%';
+  }
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    window.requestAnimationFrame(function(){sync();tick=false;});
+  },{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>
